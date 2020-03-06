@@ -1,0 +1,28 @@
+PODS:
+  - Alamofire (5.0.2)
+  - OAuthSwift (2.0.0)
+  - SwiftKeychainWrapper (3.4.0)
+  - SwiftyJSON (5.0.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.0)
+  - OAuthSwift (~> 2.0.0)
+  - SwiftKeychainWrapper
+  - SwiftyJSON
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - OAuthSwift
+    - SwiftKeychainWrapper
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: 3ba7a4db18b4f62c4a1c0e1cb39d7f3d52e10ada
+  OAuthSwift: 6805456763cf1c7ae0c16765257ed430b7aacae7
+  SwiftKeychainWrapper: 6fc49fbf7d4a6b0772917acb0e53a1639f6078d6
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+
+PODFILE CHECKSUM: 9d4cebfcaa12cad8d9449481e718a93b0835d1f6
+
+COCOAPODS: 1.9.0

@@ -3,10 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D25C39824125D3B00237FDA /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D25C39724125D3B00237FDA /* HomePageViewController.swift */; };
+		1D25C39A24125E8C00237FDA /* navigationBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D25C39924125E8C00237FDA /* navigationBarProtocol.swift */; };
+		1D982F8024123D810083603F /* letMeInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D982F7F24123D810083603F /* letMeInButton.swift */; };
+		1DC9272A24124D4C0005F8FA /* navigationBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9272924124D4C0005F8FA /* navigationBarModel.swift */; };
+		1DC9272C2412549F0005F8FA /* alamofireRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9272B2412549F0005F8FA /* alamofireRequests.swift */; };
 		1DE01475240D624F0078D2C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE01474240D624F0078D2C7 /* AppDelegate.swift */; };
 		1DE01477240D624F0078D2C7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE01476240D624F0078D2C7 /* SceneDelegate.swift */; };
 		1DE01479240D624F0078D2C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE01478240D624F0078D2C7 /* ViewController.swift */; };
@@ -16,6 +21,12 @@
 		1DE01484240D62540078D2C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DE01482240D62540078D2C7 /* LaunchScreen.storyboard */; };
 		1DE0148F240D62540078D2C7 /* JogoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE0148E240D62540078D2C7 /* JogoTests.swift */; };
 		1DE0149A240D62540078D2C7 /* JogoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE01499240D62540078D2C7 /* JogoUITests.swift */; };
+		1DE014A8240E6DA70078D2C7 /* RequestInterseptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE014A7240E6DA70078D2C7 /* RequestInterseptor.swift */; };
+		1DFD641C241123C900A18532 /* SF-UI-Text-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1DFD641A2411239D00A18532 /* SF-UI-Text-Bold.ttf */; };
+		1DFD6423241127DC00A18532 /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFD6422241127DC00A18532 /* UIColor+Additions.swift */; };
+		1DFD64252411287B00A18532 /* bearNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFD64242411287B00A18532 /* bearNavigationBar.swift */; };
+		1DFEB63C24110FB400097A55 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFEB63B24110FB400097A55 /* LogInViewController.swift */; };
+		3B74C81D96D098310C5ABBF8 /* Pods_Jogo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27137D9EBE712D2D8A43399C /* Pods_Jogo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +47,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C4213EC9B1866C2B50ED521 /* Pods-Jogo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jogo.release.xcconfig"; path = "Target Support Files/Pods-Jogo/Pods-Jogo.release.xcconfig"; sourceTree = "<group>"; };
+		1D25C39724125D3B00237FDA /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		1D25C39924125E8C00237FDA /* navigationBarProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = navigationBarProtocol.swift; sourceTree = "<group>"; };
+		1D982F7F24123D810083603F /* letMeInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = letMeInButton.swift; sourceTree = "<group>"; };
+		1DC9272924124D4C0005F8FA /* navigationBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = navigationBarModel.swift; sourceTree = "<group>"; };
+		1DC9272B2412549F0005F8FA /* alamofireRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alamofireRequests.swift; sourceTree = "<group>"; };
 		1DE01471240D624F0078D2C7 /* Jogo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jogo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DE01474240D624F0078D2C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DE01476240D624F0078D2C7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +68,13 @@
 		1DE01495240D62540078D2C7 /* JogoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JogoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DE01499240D62540078D2C7 /* JogoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JogoUITests.swift; sourceTree = "<group>"; };
 		1DE0149B240D62540078D2C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1DE014A7240E6DA70078D2C7 /* RequestInterseptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestInterseptor.swift; sourceTree = "<group>"; };
+		1DFD641A2411239D00A18532 /* SF-UI-Text-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Bold.ttf"; sourceTree = "<group>"; };
+		1DFD6422241127DC00A18532 /* UIColor+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
+		1DFD64242411287B00A18532 /* bearNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bearNavigationBar.swift; sourceTree = "<group>"; };
+		1DFEB63B24110FB400097A55 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		27137D9EBE712D2D8A43399C /* Pods_Jogo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jogo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		964FB7EAB76AA079E5A1FBC4 /* Pods-Jogo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jogo.debug.xcconfig"; path = "Target Support Files/Pods-Jogo/Pods-Jogo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B74C81D96D098310C5ABBF8 /* Pods_Jogo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +103,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D982F8124123E9C0083603F /* views */ = {
+			isa = PBXGroup;
+			children = (
+				1DFD64242411287B00A18532 /* bearNavigationBar.swift */,
+				1DFD6422241127DC00A18532 /* UIColor+Additions.swift */,
+				1D982F7F24123D810083603F /* letMeInButton.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		1DC9272824124D2C0005F8FA /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1DC9272924124D4C0005F8FA /* navigationBarModel.swift */,
+				1D25C39924125E8C00237FDA /* navigationBarProtocol.swift */,
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
 		1DE01468240D624F0078D2C7 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +129,8 @@
 				1DE0148D240D62540078D2C7 /* JogoTests */,
 				1DE01498240D62540078D2C7 /* JogoUITests */,
 				1DE01472240D624F0078D2C7 /* Products */,
+				8F18E17AFA7C3AD3967E4106 /* Pods */,
+				7D70EC74AFB904749A5EA190 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,12 +147,18 @@
 		1DE01473240D624F0078D2C7 /* Jogo */ = {
 			isa = PBXGroup;
 			children = (
+				1DE0147A240D624F0078D2C7 /* Main.storyboard */,
+				1D25C39724125D3B00237FDA /* HomePageViewController.swift */,
 				1DE01474240D624F0078D2C7 /* AppDelegate.swift */,
 				1DE01476240D624F0078D2C7 /* SceneDelegate.swift */,
 				1DE01478240D624F0078D2C7 /* ViewController.swift */,
-				1DE0147A240D624F0078D2C7 /* Main.storyboard */,
-				1DE01480240D62540078D2C7 /* Assets.xcassets */,
+				1DFEB63B24110FB400097A55 /* LogInViewController.swift */,
 				1DE01482240D62540078D2C7 /* LaunchScreen.storyboard */,
+				1DC9272824124D2C0005F8FA /* viewModel */,
+				1D982F8124123E9C0083603F /* views */,
+				1DE014AD240E75C70078D2C7 /* API */,
+				1DE01480240D62540078D2C7 /* Assets.xcassets */,
+				1DFD641D2411278600A18532 /* Fonts */,
 				1DE01485240D62540078D2C7 /* Info.plist */,
 				1DE0147D240D624F0078D2C7 /* Jogo.xcdatamodeld */,
 			);
@@ -131,6 +183,40 @@
 			path = JogoUITests;
 			sourceTree = "<group>";
 		};
+		1DE014AD240E75C70078D2C7 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				1DC9272B2412549F0005F8FA /* alamofireRequests.swift */,
+				1DE014A7240E6DA70078D2C7 /* RequestInterseptor.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		1DFD641D2411278600A18532 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1DFD641A2411239D00A18532 /* SF-UI-Text-Bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		7D70EC74AFB904749A5EA190 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				27137D9EBE712D2D8A43399C /* Pods_Jogo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8F18E17AFA7C3AD3967E4106 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				964FB7EAB76AA079E5A1FBC4 /* Pods-Jogo.debug.xcconfig */,
+				0C4213EC9B1866C2B50ED521 /* Pods-Jogo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +224,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DE0149E240D62540078D2C7 /* Build configuration list for PBXNativeTarget "Jogo" */;
 			buildPhases = (
+				078FAC7C6953DA0F8B985CAF /* [CP] Check Pods Manifest.lock */,
 				1DE0146D240D624F0078D2C7 /* Sources */,
 				1DE0146E240D624F0078D2C7 /* Frameworks */,
 				1DE0146F240D624F0078D2C7 /* Resources */,
+				A6293A714F38B732ECA9E1B2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -211,7 +299,7 @@
 				};
 			};
 			buildConfigurationList = 1DE0146C240D624F0078D2C7 /* Build configuration list for PBXProject "Jogo" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -238,6 +326,7 @@
 				1DE01484240D62540078D2C7 /* LaunchScreen.storyboard in Resources */,
 				1DE01481240D62540078D2C7 /* Assets.xcassets in Resources */,
 				1DE0147C240D624F0078D2C7 /* Main.storyboard in Resources */,
+				1DFD641C241123C900A18532 /* SF-UI-Text-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,14 +346,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		078FAC7C6953DA0F8B985CAF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Jogo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A6293A714F38B732ECA9E1B2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Jogo/Pods-Jogo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Jogo/Pods-Jogo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Jogo/Pods-Jogo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1DE0146D240D624F0078D2C7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				1DE0147F240D624F0078D2C7 /* Jogo.xcdatamodeld in Sources */,
+				1DC9272A24124D4C0005F8FA /* navigationBarModel.swift in Sources */,
+				1D25C39A24125E8C00237FDA /* navigationBarProtocol.swift in Sources */,
+				1DFD64252411287B00A18532 /* bearNavigationBar.swift in Sources */,
+				1DFD6423241127DC00A18532 /* UIColor+Additions.swift in Sources */,
 				1DE01479240D624F0078D2C7 /* ViewController.swift in Sources */,
 				1DE01475240D624F0078D2C7 /* AppDelegate.swift in Sources */,
+				1DC9272C2412549F0005F8FA /* alamofireRequests.swift in Sources */,
+				1DE014A8240E6DA70078D2C7 /* RequestInterseptor.swift in Sources */,
+				1D25C39824125D3B00237FDA /* HomePageViewController.swift in Sources */,
+				1DFEB63C24110FB400097A55 /* LogInViewController.swift in Sources */,
+				1D982F8024123D810083603F /* letMeInButton.swift in Sources */,
 				1DE01477240D624F0078D2C7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,11 +576,13 @@
 		};
 		1DE0149F240D62540078D2C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 964FB7EAB76AA079E5A1FBC4 /* Pods-Jogo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UNADQ24S97;
 				INFOPLIST_FILE = Jogo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -454,11 +596,13 @@
 		};
 		1DE014A0240D62540078D2C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C4213EC9B1866C2B50ED521 /* Pods-Jogo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UNADQ24S97;
 				INFOPLIST_FILE = Jogo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
