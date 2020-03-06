@@ -8,12 +8,10 @@
 
 import UIKit
 
-public struct BaseNavigationBarModel: NavigationBarProtocol {
+public class BaseNavigationBarModel: NavigationBarProtocol {
     var logoImage: UIImage
     
     var menuButtonImage: UIImage?
-    
-    var filterButtonImage: UIImage
     
     var logoImageColor: UIColor
     
@@ -23,18 +21,15 @@ public struct BaseNavigationBarModel: NavigationBarProtocol {
     init() {
         logoImage = UIImage(named: "logo")!
         menuButtonImage = UIImage(named: "menu")!
-        filterButtonImage = UIImage(named: "menu")!
         fillColor = UIColor.appleGreen
         logoImageColor = UIColor.white
     }
 }
 
-public struct HomePageNavigationBarModel: NavigationBarProtocol {
+public struct HomeNavigationBarModel: NavigationBarProtocol {
     var logoImage: UIImage
     
     var menuButtonImage: UIImage?
-    
-    var filterButtonImage: UIImage
     
     var logoImageColor: UIColor
     
@@ -43,8 +38,21 @@ public struct HomePageNavigationBarModel: NavigationBarProtocol {
     
     init() {
         logoImage = UIImage(named: "logoGreen")!
-        filterButtonImage = UIImage(named: "menu")!
         fillColor = .whiteThree
         logoImageColor = UIColor.green
     }
+}
+
+public class JogsNavigationBarModel: BaseNavigationBarModel {
+    var filterImage: UIImage
+    var filterActiveImage: UIImage
+    
+    override init() {
+        
+        filterImage = UIImage(named: "filter")!
+        filterActiveImage = UIImage(named: "filterActive")!
+        
+        super.init()
+    }
+    
 }

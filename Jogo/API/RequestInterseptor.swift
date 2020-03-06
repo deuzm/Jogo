@@ -9,7 +9,6 @@
 import Foundation
 
 import Alamofire
-import OAuthSwift
 import SwiftKeychainWrapper
 
 protocol AccessTokenStorage: class {

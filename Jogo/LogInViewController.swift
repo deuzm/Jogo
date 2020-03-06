@@ -11,11 +11,12 @@ import SwiftyJSON
 import Alamofire
 
 
-class LogInViewController: UIViewController {
+class LogInViewController: UIViewController, UITextFieldDelegate {
 
     
     @IBOutlet weak var letMeInButton: UIButton!
     @IBOutlet weak var idTextField: UITextField!
+    
     var request: AlamofireRequests = AlamofireRequests()
     
     var navigationBar: UINavigationBar = BearNavigationBar()
@@ -23,10 +24,13 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
+        self.idTextField.delegate = self
         
     }
     
     func setUpViews() {
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(UIView.endEditing(_:)))
+//        view.addGestureRecognizer(tap)
         navigationBar = BearNavigationBar()
         view.addSubview(navigationBar)
 
@@ -45,6 +49,11 @@ class LogInViewController: UIViewController {
                 self.performSegue(withIdentifier: "toHomePageSegue", sender: nil)
             }
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
 }

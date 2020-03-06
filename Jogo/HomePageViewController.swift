@@ -11,7 +11,7 @@ import UIKit
 class HomePageViewController: UIViewController {
     
     //properties
-    var navigationBar: UINavigationBar = BearNavigationBar(navigationBarStyle: HomePageNavigationBarModel())
+    var navigationBar: UINavigationBar = BearNavigationBar(navigationBarStyle: HomeNavigationBarModel())
 
     override func viewDidLoad() {
         super.viewDidLoad()

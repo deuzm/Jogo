@@ -9,12 +9,31 @@
 /* Begin PBXBuildFile section */
 		1D25C39824125D3B00237FDA /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D25C39724125D3B00237FDA /* HomePageViewController.swift */; };
 		1D25C39A24125E8C00237FDA /* navigationBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D25C39924125E8C00237FDA /* navigationBarProtocol.swift */; };
+		1D25C39C2412812800237FDA /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D25C39B2412812800237FDA /* InfoViewController.swift */; };
+		1D25C39E2412813300237FDA /* JogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D25C39D2412813300237FDA /* JogsViewController.swift */; };
+		1D25C3A02412813F00237FDA /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D25C39F2412813F00237FDA /* ContactUsViewController.swift */; };
+		1D25C3B224128C0500237FDA /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1D25C3B72412CEAB00237FDA /* JogsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D25C3B62412CEAB00237FDA /* JogsTableViewController.swift */; };
+		1D25C3C52412D12D00237FDA /* SFUIText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D25C3B92412D12D00237FDA /* SFUIText-Medium.ttf */; };
+		1D25C3C62412D12D00237FDA /* SFUIText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D25C3BA2412D12D00237FDA /* SFUIText-Regular.ttf */; };
+		1D25C3C72412D12D00237FDA /* SFUIText-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D25C3BB2412D12D00237FDA /* SFUIText-Heavy.ttf */; };
+		1D25C3C82412D12D00237FDA /* SFUIText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D25C3BC2412D12D00237FDA /* SFUIText-Bold.ttf */; };
+		1D25C3C92412D12D00237FDA /* SFUIText-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D25C3BD2412D12D00237FDA /* SFUIText-Light.ttf */; };
+		1D25C3CA2412D12D00237FDA /* SFUIText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D25C3BE2412D12D00237FDA /* SFUIText-Semibold.ttf */; };
+		1D25C3CB2412D12D00237FDA /* SFUIText-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D25C3BF2412D12D00237FDA /* SFUIText-LightItalic.ttf */; };
+		1D25C3CC2412D12D00237FDA /* SFUIText-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D25C3C02412D12D00237FDA /* SFUIText-BoldItalic.ttf */; };
+		1D25C3CD2412D12D00237FDA /* SFUIText-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D25C3C12412D12D00237FDA /* SFUIText-MediumItalic.ttf */; };
+		1D25C3CE2412D12D00237FDA /* SFUIText-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D25C3C22412D12D00237FDA /* SFUIText-SemiboldItalic.ttf */; };
+		1D25C3CF2412D12D00237FDA /* SFUIText-HeavyItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D25C3C32412D12D00237FDA /* SFUIText-HeavyItalic.ttf */; };
+		1D25C3D02412D12D00237FDA /* SFUIText-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D25C3C42412D12D00237FDA /* SFUIText-RegularItalic.ttf */; };
+		1D25C3D22412D7FE00237FDA /* CreateJogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D25C3D12412D7FE00237FDA /* CreateJogViewController.swift */; };
 		1D982F8024123D810083603F /* letMeInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D982F7F24123D810083603F /* letMeInButton.swift */; };
 		1DC9272A24124D4C0005F8FA /* navigationBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9272924124D4C0005F8FA /* navigationBarModel.swift */; };
 		1DC9272C2412549F0005F8FA /* alamofireRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9272B2412549F0005F8FA /* alamofireRequests.swift */; };
+		1DD284F92412DD3E004D0745 /* RoundedRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD284F82412DD3E004D0745 /* RoundedRectangle.swift */; };
+		1DD284FB2412E1CE004D0745 /* styledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD284FA2412E1CE004D0745 /* styledTextField.swift */; };
 		1DE01475240D624F0078D2C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE01474240D624F0078D2C7 /* AppDelegate.swift */; };
 		1DE01477240D624F0078D2C7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE01476240D624F0078D2C7 /* SceneDelegate.swift */; };
-		1DE01479240D624F0078D2C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE01478240D624F0078D2C7 /* ViewController.swift */; };
 		1DE0147C240D624F0078D2C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DE0147A240D624F0078D2C7 /* Main.storyboard */; };
 		1DE0147F240D624F0078D2C7 /* Jogo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1DE0147D240D624F0078D2C7 /* Jogo.xcdatamodeld */; };
 		1DE01481240D62540078D2C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DE01480240D62540078D2C7 /* Assets.xcassets */; };
@@ -26,7 +45,7 @@
 		1DFD6423241127DC00A18532 /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFD6422241127DC00A18532 /* UIColor+Additions.swift */; };
 		1DFD64252411287B00A18532 /* bearNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFD64242411287B00A18532 /* bearNavigationBar.swift */; };
 		1DFEB63C24110FB400097A55 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFEB63B24110FB400097A55 /* LogInViewController.swift */; };
-		3B74C81D96D098310C5ABBF8 /* Pods_Jogo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27137D9EBE712D2D8A43399C /* Pods_Jogo.framework */; };
+		E944B2C7B1899628E4EAD649 /* libPods-Jogo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D21BE658ED98AB262BFEE0C2 /* libPods-Jogo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,17 +65,54 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1D25C3B324128C0500237FDA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1D25C3B224128C0500237FDA /* (null) in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		0C4213EC9B1866C2B50ED521 /* Pods-Jogo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jogo.release.xcconfig"; path = "Target Support Files/Pods-Jogo/Pods-Jogo.release.xcconfig"; sourceTree = "<group>"; };
 		1D25C39724125D3B00237FDA /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		1D25C39924125E8C00237FDA /* navigationBarProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = navigationBarProtocol.swift; sourceTree = "<group>"; };
+		1D25C39B2412812800237FDA /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		1D25C39D2412813300237FDA /* JogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JogsViewController.swift; sourceTree = "<group>"; };
+		1D25C39F2412813F00237FDA /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
+		1D25C3A1241289D900237FDA /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D25C3A5241289DF00237FDA /* SwiftKeychainWrapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftKeychainWrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D25C3A8241289E300237FDA /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D25C3AB24128A5E00237FDA /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D25C3AD24128A5E00237FDA /* SwiftKeychainWrapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftKeychainWrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D25C3AF24128A5E00237FDA /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D25C3B62412CEAB00237FDA /* JogsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JogsTableViewController.swift; sourceTree = "<group>"; };
+		1D25C3B92412D12D00237FDA /* SFUIText-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Medium.ttf"; sourceTree = "<group>"; };
+		1D25C3BA2412D12D00237FDA /* SFUIText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Regular.ttf"; sourceTree = "<group>"; };
+		1D25C3BB2412D12D00237FDA /* SFUIText-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Heavy.ttf"; sourceTree = "<group>"; };
+		1D25C3BC2412D12D00237FDA /* SFUIText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Bold.ttf"; sourceTree = "<group>"; };
+		1D25C3BD2412D12D00237FDA /* SFUIText-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Light.ttf"; sourceTree = "<group>"; };
+		1D25C3BE2412D12D00237FDA /* SFUIText-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Semibold.ttf"; sourceTree = "<group>"; };
+		1D25C3BF2412D12D00237FDA /* SFUIText-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-LightItalic.ttf"; sourceTree = "<group>"; };
+		1D25C3C02412D12D00237FDA /* SFUIText-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-BoldItalic.ttf"; sourceTree = "<group>"; };
+		1D25C3C12412D12D00237FDA /* SFUIText-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-MediumItalic.ttf"; sourceTree = "<group>"; };
+		1D25C3C22412D12D00237FDA /* SFUIText-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		1D25C3C32412D12D00237FDA /* SFUIText-HeavyItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-HeavyItalic.ttf"; sourceTree = "<group>"; };
+		1D25C3C42412D12D00237FDA /* SFUIText-RegularItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-RegularItalic.ttf"; sourceTree = "<group>"; };
+		1D25C3D12412D7FE00237FDA /* CreateJogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateJogViewController.swift; sourceTree = "<group>"; };
 		1D982F7F24123D810083603F /* letMeInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = letMeInButton.swift; sourceTree = "<group>"; };
 		1DC9272924124D4C0005F8FA /* navigationBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = navigationBarModel.swift; sourceTree = "<group>"; };
 		1DC9272B2412549F0005F8FA /* alamofireRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alamofireRequests.swift; sourceTree = "<group>"; };
+		1DD284F82412DD3E004D0745 /* RoundedRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedRectangle.swift; sourceTree = "<group>"; };
+		1DD284FA2412E1CE004D0745 /* styledTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = styledTextField.swift; sourceTree = "<group>"; };
 		1DE01471240D624F0078D2C7 /* Jogo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jogo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DE01474240D624F0078D2C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DE01476240D624F0078D2C7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1DE01478240D624F0078D2C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1DE0147B240D624F0078D2C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1DE0147E240D624F0078D2C7 /* Jogo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Jogo.xcdatamodel; sourceTree = "<group>"; };
 		1DE01480240D62540078D2C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -73,8 +129,9 @@
 		1DFD6422241127DC00A18532 /* UIColor+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
 		1DFD64242411287B00A18532 /* bearNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bearNavigationBar.swift; sourceTree = "<group>"; };
 		1DFEB63B24110FB400097A55 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
-		27137D9EBE712D2D8A43399C /* Pods_Jogo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jogo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		964FB7EAB76AA079E5A1FBC4 /* Pods-Jogo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jogo.debug.xcconfig"; path = "Target Support Files/Pods-Jogo/Pods-Jogo.debug.xcconfig"; sourceTree = "<group>"; };
+		4985B9F8FF7FEC0321CDF54D /* Pods-Jogo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jogo.release.xcconfig"; path = "Target Support Files/Pods-Jogo/Pods-Jogo.release.xcconfig"; sourceTree = "<group>"; };
+		B06AE786782B782DAFABE132 /* Pods-Jogo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jogo.debug.xcconfig"; path = "Target Support Files/Pods-Jogo/Pods-Jogo.debug.xcconfig"; sourceTree = "<group>"; };
+		D21BE658ED98AB262BFEE0C2 /* libPods-Jogo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jogo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B74C81D96D098310C5ABBF8 /* Pods_Jogo.framework in Frameworks */,
+				E944B2C7B1899628E4EAD649 /* libPods-Jogo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,9 +160,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D25C3B82412D12D00237FDA /* sf-ui-text-2-cufonfonts */ = {
+			isa = PBXGroup;
+			children = (
+				1D25C3B92412D12D00237FDA /* SFUIText-Medium.ttf */,
+				1D25C3BA2412D12D00237FDA /* SFUIText-Regular.ttf */,
+				1D25C3BB2412D12D00237FDA /* SFUIText-Heavy.ttf */,
+				1D25C3BC2412D12D00237FDA /* SFUIText-Bold.ttf */,
+				1D25C3BD2412D12D00237FDA /* SFUIText-Light.ttf */,
+				1D25C3BE2412D12D00237FDA /* SFUIText-Semibold.ttf */,
+				1D25C3BF2412D12D00237FDA /* SFUIText-LightItalic.ttf */,
+				1D25C3C02412D12D00237FDA /* SFUIText-BoldItalic.ttf */,
+				1D25C3C12412D12D00237FDA /* SFUIText-MediumItalic.ttf */,
+				1D25C3C22412D12D00237FDA /* SFUIText-SemiboldItalic.ttf */,
+				1D25C3C32412D12D00237FDA /* SFUIText-HeavyItalic.ttf */,
+				1D25C3C42412D12D00237FDA /* SFUIText-RegularItalic.ttf */,
+			);
+			path = "sf-ui-text-2-cufonfonts";
+			sourceTree = "<group>";
+		};
 		1D982F8124123E9C0083603F /* views */ = {
 			isa = PBXGroup;
 			children = (
+				1DD284F82412DD3E004D0745 /* RoundedRectangle.swift */,
+				1DD284FA2412E1CE004D0745 /* styledTextField.swift */,
 				1DFD64242411287B00A18532 /* bearNavigationBar.swift */,
 				1DFD6422241127DC00A18532 /* UIColor+Additions.swift */,
 				1D982F7F24123D810083603F /* letMeInButton.swift */,
@@ -151,7 +229,11 @@
 				1D25C39724125D3B00237FDA /* HomePageViewController.swift */,
 				1DE01474240D624F0078D2C7 /* AppDelegate.swift */,
 				1DE01476240D624F0078D2C7 /* SceneDelegate.swift */,
-				1DE01478240D624F0078D2C7 /* ViewController.swift */,
+				1D25C39B2412812800237FDA /* InfoViewController.swift */,
+				1D25C39D2412813300237FDA /* JogsViewController.swift */,
+				1D25C3D12412D7FE00237FDA /* CreateJogViewController.swift */,
+				1D25C3B62412CEAB00237FDA /* JogsTableViewController.swift */,
+				1D25C39F2412813F00237FDA /* ContactUsViewController.swift */,
 				1DFEB63B24110FB400097A55 /* LogInViewController.swift */,
 				1DE01482240D62540078D2C7 /* LaunchScreen.storyboard */,
 				1DC9272824124D2C0005F8FA /* viewModel */,
@@ -195,6 +277,7 @@
 		1DFD641D2411278600A18532 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				1D25C3B82412D12D00237FDA /* sf-ui-text-2-cufonfonts */,
 				1DFD641A2411239D00A18532 /* SF-UI-Text-Bold.ttf */,
 			);
 			path = Fonts;
@@ -203,7 +286,13 @@
 		7D70EC74AFB904749A5EA190 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				27137D9EBE712D2D8A43399C /* Pods_Jogo.framework */,
+				1D25C3AB24128A5E00237FDA /* Alamofire.framework */,
+				1D25C3AD24128A5E00237FDA /* SwiftKeychainWrapper.framework */,
+				1D25C3AF24128A5E00237FDA /* SwiftyJSON.framework */,
+				1D25C3A8241289E300237FDA /* SwiftyJSON.framework */,
+				1D25C3A5241289DF00237FDA /* SwiftKeychainWrapper.framework */,
+				1D25C3A1241289D900237FDA /* Alamofire.framework */,
+				D21BE658ED98AB262BFEE0C2 /* libPods-Jogo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -211,8 +300,8 @@
 		8F18E17AFA7C3AD3967E4106 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				964FB7EAB76AA079E5A1FBC4 /* Pods-Jogo.debug.xcconfig */,
-				0C4213EC9B1866C2B50ED521 /* Pods-Jogo.release.xcconfig */,
+				B06AE786782B782DAFABE132 /* Pods-Jogo.debug.xcconfig */,
+				4985B9F8FF7FEC0321CDF54D /* Pods-Jogo.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -224,11 +313,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DE0149E240D62540078D2C7 /* Build configuration list for PBXNativeTarget "Jogo" */;
 			buildPhases = (
-				078FAC7C6953DA0F8B985CAF /* [CP] Check Pods Manifest.lock */,
+				3A710438AAE23861950293BD /* [CP] Check Pods Manifest.lock */,
 				1DE0146D240D624F0078D2C7 /* Sources */,
 				1DE0146E240D624F0078D2C7 /* Frameworks */,
 				1DE0146F240D624F0078D2C7 /* Resources */,
-				A6293A714F38B732ECA9E1B2 /* [CP] Embed Pods Frameworks */,
+				1D25C3B324128C0500237FDA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -324,9 +413,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DE01484240D62540078D2C7 /* LaunchScreen.storyboard in Resources */,
+				1D25C3C92412D12D00237FDA /* SFUIText-Light.ttf in Resources */,
+				1D25C3CB2412D12D00237FDA /* SFUIText-LightItalic.ttf in Resources */,
 				1DE01481240D62540078D2C7 /* Assets.xcassets in Resources */,
 				1DE0147C240D624F0078D2C7 /* Main.storyboard in Resources */,
+				1D25C3CD2412D12D00237FDA /* SFUIText-MediumItalic.ttf in Resources */,
+				1D25C3C72412D12D00237FDA /* SFUIText-Heavy.ttf in Resources */,
+				1D25C3D02412D12D00237FDA /* SFUIText-RegularItalic.ttf in Resources */,
+				1D25C3CA2412D12D00237FDA /* SFUIText-Semibold.ttf in Resources */,
+				1D25C3CC2412D12D00237FDA /* SFUIText-BoldItalic.ttf in Resources */,
+				1D25C3C62412D12D00237FDA /* SFUIText-Regular.ttf in Resources */,
 				1DFD641C241123C900A18532 /* SF-UI-Text-Bold.ttf in Resources */,
+				1D25C3CE2412D12D00237FDA /* SFUIText-SemiboldItalic.ttf in Resources */,
+				1D25C3CF2412D12D00237FDA /* SFUIText-HeavyItalic.ttf in Resources */,
+				1D25C3C52412D12D00237FDA /* SFUIText-Medium.ttf in Resources */,
+				1D25C3C82412D12D00237FDA /* SFUIText-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,7 +448,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		078FAC7C6953DA0F8B985CAF /* [CP] Check Pods Manifest.lock */ = {
+		3A710438AAE23861950293BD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -369,23 +470,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A6293A714F38B732ECA9E1B2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Jogo/Pods-Jogo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Jogo/Pods-Jogo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Jogo/Pods-Jogo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -395,14 +479,20 @@
 			files = (
 				1DE0147F240D624F0078D2C7 /* Jogo.xcdatamodeld in Sources */,
 				1DC9272A24124D4C0005F8FA /* navigationBarModel.swift in Sources */,
+				1D25C3B72412CEAB00237FDA /* JogsTableViewController.swift in Sources */,
+				1D25C39E2412813300237FDA /* JogsViewController.swift in Sources */,
 				1D25C39A24125E8C00237FDA /* navigationBarProtocol.swift in Sources */,
 				1DFD64252411287B00A18532 /* bearNavigationBar.swift in Sources */,
 				1DFD6423241127DC00A18532 /* UIColor+Additions.swift in Sources */,
-				1DE01479240D624F0078D2C7 /* ViewController.swift in Sources */,
 				1DE01475240D624F0078D2C7 /* AppDelegate.swift in Sources */,
+				1DD284FB2412E1CE004D0745 /* styledTextField.swift in Sources */,
 				1DC9272C2412549F0005F8FA /* alamofireRequests.swift in Sources */,
 				1DE014A8240E6DA70078D2C7 /* RequestInterseptor.swift in Sources */,
 				1D25C39824125D3B00237FDA /* HomePageViewController.swift in Sources */,
+				1D25C3D22412D7FE00237FDA /* CreateJogViewController.swift in Sources */,
+				1D25C3A02412813F00237FDA /* ContactUsViewController.swift in Sources */,
+				1DD284F92412DD3E004D0745 /* RoundedRectangle.swift in Sources */,
+				1D25C39C2412812800237FDA /* InfoViewController.swift in Sources */,
 				1DFEB63C24110FB400097A55 /* LogInViewController.swift in Sources */,
 				1D982F8024123D810083603F /* letMeInButton.swift in Sources */,
 				1DE01477240D624F0078D2C7 /* SceneDelegate.swift in Sources */,
@@ -576,13 +666,13 @@
 		};
 		1DE0149F240D62540078D2C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 964FB7EAB76AA079E5A1FBC4 /* Pods-Jogo.debug.xcconfig */;
+			baseConfigurationReference = B06AE786782B782DAFABE132 /* Pods-Jogo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UNADQ24S97;
 				INFOPLIST_FILE = Jogo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -596,13 +686,13 @@
 		};
 		1DE014A0240D62540078D2C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C4213EC9B1866C2B50ED521 /* Pods-Jogo.release.xcconfig */;
+			baseConfigurationReference = 4985B9F8FF7FEC0321CDF54D /* Pods-Jogo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UNADQ24S97;
 				INFOPLIST_FILE = Jogo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

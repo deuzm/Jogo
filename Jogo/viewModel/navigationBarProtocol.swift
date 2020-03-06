@@ -11,9 +11,6 @@ import UIKit
 protocol NavigationBarProtocol {
     var logoImage: UIImage { get set }
     var menuButtonImage: UIImage? { get set }
-    //todo
-    var filterButtonImage: UIImage { get set }
-    
     var logoImageColor: UIColor { get set }
     var fillColor: UIColor { get set }
 }

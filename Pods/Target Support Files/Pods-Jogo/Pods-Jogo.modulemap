@@ -1,4 +1,4 @@
-framework module Pods_Jogo {
+module Pods_Jogo {
   umbrella header "Pods-Jogo-umbrella.h"
 
   export *
