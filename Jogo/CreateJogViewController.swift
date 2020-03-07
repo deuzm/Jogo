@@ -10,10 +10,22 @@ import UIKit
 
 class CreateJogViewController: UIViewController {
 
+    @IBOutlet weak var distanceTextView: styledTextField!
+    @IBOutlet weak var timeTextField: styledTextField!
+    @IBOutlet weak var dateTextField: styledTextField!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func saveButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction func closeButtonTapped(_ sender: Any) {
+        
     }
     
 

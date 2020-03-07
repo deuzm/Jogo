@@ -23,12 +23,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Znm-S0-ghh">
-                                <rect key="frame" x="0.0" y="-44" width="374" height="44"/>
-                                <items>
-                                    <navigationItem title="Title" id="HhS-Ru-nqI"/>
-                                </items>
-                            </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDg-WC-RsF" customClass="letMeInButton" customModule="Jogo" customModuleProvider="target">
                                 <rect key="frame" x="112" y="471" width="151" height="60"/>
                                 <constraints>
@@ -67,21 +61,16 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="LDg-WC-RsF" firstAttribute="top" secondItem="1oc-HI-GtG" secondAttribute="bottom" constant="23" id="1oy-iH-Glg"/>
-                            <constraint firstItem="cte-e7-ABz" firstAttribute="top" secondItem="Znm-S0-ghh" secondAttribute="bottom" constant="213" id="4IJ-E8-jaa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LDg-WC-RsF" secondAttribute="bottom" constant="136" id="6RG-6i-IsM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cte-e7-ABz" secondAttribute="bottom" constant="304" id="8al-9Q-nTx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cte-e7-ABz" secondAttribute="trailing" constant="108" id="9rz-JD-bSe"/>
-                            <constraint firstItem="Znm-S0-ghh" firstAttribute="centerX" secondItem="cte-e7-ABz" secondAttribute="centerX" id="EOL-P6-gIr"/>
-                            <constraint firstItem="Znm-S0-ghh" firstAttribute="centerX" secondItem="1oc-HI-GtG" secondAttribute="centerX" id="MIu-k2-Oo8"/>
+                            <constraint firstItem="cte-e7-ABz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="213" id="Ex4-Hq-cNr"/>
                             <constraint firstItem="cte-e7-ABz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="107" id="Qqc-Dj-QGP"/>
-                            <constraint firstItem="Znm-S0-ghh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="YAS-4a-Xh5"/>
                             <constraint firstItem="1oc-HI-GtG" firstAttribute="top" secondItem="cte-e7-ABz" secondAttribute="bottom" constant="51" id="dUf-rE-ShZ"/>
                             <constraint firstItem="LDg-WC-RsF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="112" id="jrB-Rg-pOS"/>
                             <constraint firstItem="1oc-HI-GtG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="70" id="o5X-cB-h8H"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LDg-WC-RsF" secondAttribute="trailing" constant="112" id="pJK-pJ-fJY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1oc-HI-GtG" secondAttribute="trailing" constant="71" id="tVB-kg-zbL"/>
-                            <constraint firstItem="LDg-WC-RsF" firstAttribute="top" secondItem="Znm-S0-ghh" secondAttribute="bottom" constant="471" id="xJR-LG-J2q"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -316,46 +305,55 @@
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GMp-7q-d8y" customClass="RoundedRectangle" customModule="Jogo" customModuleProvider="target">
-                                <rect key="frame" x="34" y="159" width="307" height="396"/>
+                                <rect key="frame" x="34" y="159" width="307" height="379"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bea-4e-ar6" customClass="styledTextField" customModule="Jogo" customModuleProvider="target">
-                                        <rect key="frame" x="35" y="86" width="236" height="31"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="km" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Bea-4e-ar6" customClass="styledTextField" customModule="Jogo" customModuleProvider="target">
+                                        <rect key="frame" x="35" y="85" width="236" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="31" id="nCG-0j-kP9"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="13"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hgm-ML-zUu">
-                                        <rect key="frame" x="35" y="64" width="54" height="16"/>
+                                        <rect key="frame" x="35" y="64" width="54" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="17i-g2-y3f"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qqa-JE-M2V" customClass="styledTextField" customModule="Jogo" customModuleProvider="target">
-                                        <rect key="frame" x="35" y="159" width="236" height="31"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="00.00" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Qqa-JE-M2V" customClass="styledTextField" customModule="Jogo" customModuleProvider="target">
+                                        <rect key="frame" x="35" y="156" width="236" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="31" id="mVN-XY-WHB"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="13"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DVd-dR-g8y" customClass="styledTextField" customModule="Jogo" customModuleProvider="target">
-                                        <rect key="frame" x="35" y="238" width="236" height="31"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="dd.mm.yyyy" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="DVd-dR-g8y" customClass="styledTextField" customModule="Jogo" customModuleProvider="target">
+                                        <rect key="frame" x="35" y="228" width="236" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="31" id="8di-zX-Gzj"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="13"/>
+                                        <textInputTraits key="textInputTraits" textContentType="one-time-code"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnY-g0-BwY">
-                                        <rect key="frame" x="35" y="210" width="29" height="22"/>
+                                        <rect key="frame" x="35" y="207" width="29" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="xPL-bh-Ds4"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDY-g4-1F9" customClass="letMeInButton" customModule="Jogo" customModuleProvider="target">
-                                        <rect key="frame" x="35" y="310" width="236" height="45"/>
+                                        <rect key="frame" x="35" y="300" width="236" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="fNX-w3-9bE"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="SFUIText-Bold" family="SF UI Text" pointSize="12.600000381469727"/>
                                         <state key="normal" title="Save"/>
                                         <userDefinedRuntimeAttributes>
@@ -369,30 +367,39 @@
                                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="saveButtonTapped:" destination="Q9I-Y9-a64" eventType="touchUpInside" id="4Lq-hK-Rzt"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hgh-kJ-6qQ">
-                                        <rect key="frame" x="34" y="138" width="31" height="16"/>
+                                        <rect key="frame" x="34" y="136" width="31" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="p12-tk-4nq"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvq-JB-jj9">
                                         <rect key="frame" x="269" y="20" width="18" height="22"/>
                                         <state key="normal" image="cancel"/>
+                                        <connections>
+                                            <action selector="closeButtonTapped:" destination="Q9I-Y9-a64" eventType="touchUpInside" id="fTu-mb-3CP"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Qqa-JE-M2V" firstAttribute="leading" secondItem="GMp-7q-d8y" secondAttribute="leading" constant="35" id="3Mr-qX-uxn"/>
                                     <constraint firstItem="Qqa-JE-M2V" firstAttribute="top" secondItem="Hgh-kJ-6qQ" secondAttribute="bottom" constant="5" id="4st-kY-Ldy"/>
                                     <constraint firstItem="Bea-4e-ar6" firstAttribute="leading" secondItem="GMp-7q-d8y" secondAttribute="leading" constant="35" id="67p-Fw-rxk"/>
-                                    <constraint firstAttribute="bottom" secondItem="jDY-g4-1F9" secondAttribute="bottom" constant="41" id="9Eb-6a-fog"/>
+                                    <constraint firstAttribute="bottom" secondItem="jDY-g4-1F9" secondAttribute="bottom" constant="37" id="9Eb-6a-fog"/>
                                     <constraint firstItem="pnY-g0-BwY" firstAttribute="leading" secondItem="Hgh-kJ-6qQ" secondAttribute="leading" constant="1" id="Df4-1o-bvF"/>
                                     <constraint firstAttribute="trailing" secondItem="DVd-dR-g8y" secondAttribute="trailing" constant="36" id="ELW-fC-Tt8"/>
                                     <constraint firstItem="Hgm-ML-zUu" firstAttribute="top" secondItem="GMp-7q-d8y" secondAttribute="top" constant="64" id="IGN-Bq-YV1"/>
                                     <constraint firstAttribute="trailing" secondItem="Qqa-JE-M2V" secondAttribute="trailing" constant="36" id="Jwg-G4-mLZ"/>
-                                    <constraint firstItem="Hgh-kJ-6qQ" firstAttribute="top" secondItem="Bea-4e-ar6" secondAttribute="bottom" constant="21" id="Jz9-S5-6dK"/>
+                                    <constraint firstItem="Hgh-kJ-6qQ" firstAttribute="top" secondItem="Bea-4e-ar6" secondAttribute="bottom" constant="20" id="Jz9-S5-6dK"/>
                                     <constraint firstItem="jDY-g4-1F9" firstAttribute="top" secondItem="DVd-dR-g8y" secondAttribute="bottom" constant="41" id="Lgq-RN-n72"/>
-                                    <constraint firstAttribute="bottom" secondItem="pnY-g0-BwY" secondAttribute="bottom" constant="164" id="P1y-dg-O1v"/>
                                     <constraint firstItem="DVd-dR-g8y" firstAttribute="leading" secondItem="GMp-7q-d8y" secondAttribute="leading" constant="35" id="SCE-Uh-9Nx"/>
                                     <constraint firstItem="jDY-g4-1F9" firstAttribute="centerX" secondItem="DVd-dR-g8y" secondAttribute="centerX" id="U39-Nr-NtT"/>
                                     <constraint firstItem="pnY-g0-BwY" firstAttribute="leading" secondItem="Hgm-ML-zUu" secondAttribute="leading" id="UWS-ea-i5C"/>
@@ -418,7 +425,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="SCO-kw-8qJ" firstAttribute="top" secondItem="XWW-Oi-ZwP" secondAttribute="top" id="3Qd-a6-cwg"/>
-                            <constraint firstItem="XWW-Oi-ZwP" firstAttribute="bottom" secondItem="GMp-7q-d8y" secondAttribute="bottom" constant="112" id="TA8-bk-4i4"/>
                             <constraint firstItem="GMp-7q-d8y" firstAttribute="top" secondItem="SCO-kw-8qJ" secondAttribute="bottom" constant="82" id="opw-Rn-c0e"/>
                             <constraint firstItem="GMp-7q-d8y" firstAttribute="leading" secondItem="XWW-Oi-ZwP" secondAttribute="leading" constant="34" id="reu-T6-kHh"/>
                             <constraint firstItem="SCO-kw-8qJ" firstAttribute="centerX" secondItem="GMp-7q-d8y" secondAttribute="centerX" id="vYf-OG-uxj"/>
@@ -427,6 +433,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XWW-Oi-ZwP"/>
                     </view>
+                    <connections>
+                        <outlet property="dateTextField" destination="DVd-dR-g8y" id="Lrt-kN-S7G"/>
+                        <outlet property="distanceTextView" destination="Bea-4e-ar6" id="lMB-2i-Gvk"/>
+                        <outlet property="timeTextField" destination="Qqa-JE-M2V" id="BSm-B0-U3Q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wzL-Gm-caK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -63,14 +63,14 @@ class BearNavigationBar: UINavigationBar {
     
     //initializers
     override init(frame: CGRect) {
-        super.init(frame: CGRect(x: 0, y: 0, width: CGFloat(375), height: CGFloat(77)))
+        super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: CGFloat(77)))
         
         safeArea = self.layoutMarginsGuide
         setUpViews()
     }
     
     init(navigationBarStyle: NavigationBarProtocol) {
-        super.init(frame: CGRect(x: 0, y: 0, width: CGFloat(375), height: CGFloat(77)))
+        super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: CGFloat(77)))
         navBarModel = navigationBarStyle
         safeArea = self.layoutMarginsGuide
         setUpViews()
@@ -82,7 +82,7 @@ class BearNavigationBar: UINavigationBar {
         navBarModel = JogsNavigationBarModel()
         super.init(coder: coder)
         safeArea = self.layoutMarginsGuide
-        self.frame = CGRect(x: 0, y: 0, width: CGFloat(375), height: CGFloat(77))
+        self.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: CGFloat(77))
         setUpViews()
     }
     
@@ -110,21 +110,34 @@ class BearNavigationBar: UINavigationBar {
             menuButton = nil
             setUpConstraintsForHomePage()
         }
-        
+        let backgroundConstraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[v0]-0-|", options: .alignAllCenterY, metrics: nil, views: ["v0": backgroundView])
         let containerConstraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|-20-[v0]-20-|", options: .alignAllCenterY, metrics: nil, views: ["v0": container])
         addConstraints(containerConstraint)
+        addConstraints(backgroundConstraint)
     }
     
     func setUpConstraintsForHomePage() {
-        let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-25-[image]|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["image": barImage])
+        let horizontalConstraints = NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-25-[image]|",
+            options: NSLayoutConstraint.FormatOptions(),
+            metrics: nil,
+            views: ["image": barImage])
         addConstraints(horizontalConstraints)
     }
     
     func setUpConstraintsForLogIn() {
         let views = ["image": barImage,
                      "menu": menuButton]
-        let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-7-[menu]-6-|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: views as [String : Any])
-        let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-25-[image]-199-[menu]-25-|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: views as [String : Any])
+        let verticalConstraints = NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-7-[menu]-6-|",
+            options: NSLayoutConstraint.FormatOptions(),
+            metrics: nil,
+            views: views as [String : Any])
+        let horizontalConstraints = NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-25-[image]-199-[menu]-25-|",
+            options: NSLayoutConstraint.FormatOptions(),
+            metrics: nil,
+            views: views as [String : Any])
         addConstraints(verticalConstraints)
         addConstraints(horizontalConstraints)
     }
@@ -150,7 +163,7 @@ class BearNavigationBar: UINavigationBar {
             metrics: nil,
             views: views as [String : Any])
         let horizontalConstraints = NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-25-[image]-128-[filter]-45-[menu]-25-|",
+            withVisualFormat: "H:|-25-[image]-128-[filter]-[menu]-25-|",
             metrics: nil,
             views: views as [String : Any])
         container.addConstraints(filterVerticalConstraints)
