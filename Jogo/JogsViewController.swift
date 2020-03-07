@@ -10,7 +10,6 @@ import UIKit
 
 class JogsViewController: UIViewController {
 
-    var bearNavigationBar: UINavigationBar = BearNavigationBar(navigationBarStyle: HomeNavigationBarModel())
     
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var createJogButton: letMeInButton!
@@ -25,7 +24,6 @@ class JogsViewController: UIViewController {
     }
     
     func setUpViews() {
-        navigationBar = bearNavigationBar
     }
 
     /*

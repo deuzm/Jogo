@@ -28,7 +28,7 @@ class BearNavigationBar: UINavigationBar {
     }()
     
     
-    lazy var barImage: UIImageView = {
+    lazy var logoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = logoImage
         imageView.frame = CGRect(x: 0, y: 0, width: 98, height: 37)
@@ -87,59 +87,67 @@ class BearNavigationBar: UINavigationBar {
     }
     
     func setUpViews() {
+        
         self.setValue(true, forKey: "hidesShadow")
         logoImage = navBarModel.logoImage
         fillColor = navBarModel.fillColor
         setFilterButton()
-        container.addSubview(barImage)
+        container.addSubview(logoImageView)
         backgroundView.addSubview(container)
         addSubview(backgroundView)
         
-        //Adding menu button if there is an image
+        setBackgroundViewsConstraints()
+        
+        //Adding menu button if there is an image in a model
+        
         if let menuImage = navBarModel.menuButtonImage {
             if let menu = menuButton {
                 container.addSubview(menu)
                 if navBarModel is JogsNavigationBarModel {
-                    jogsConstraints()
+                    setMenuButtonConstraints()
+                    setFilterButtonConstraints()
                 }
                 else {
-                    setUpConstraintsForLogIn()
+                    setMenuButtonConstraints()
                 }
             }
         } else {
             menuButton = nil
-            setUpConstraintsForHomePage()
         }
-        let backgroundConstraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[v0]-0-|", options: .alignAllCenterY, metrics: nil, views: ["v0": backgroundView])
-        let containerConstraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|-20-[v0]-20-|", options: .alignAllCenterY, metrics: nil, views: ["v0": container])
-        addConstraints(containerConstraint)
-        addConstraints(backgroundConstraint)
+        
     }
     
-    func setUpConstraintsForHomePage() {
-        let horizontalConstraints = NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-25-[image]|",
-            options: NSLayoutConstraint.FormatOptions(),
-            metrics: nil,
-            views: ["image": barImage])
-        addConstraints(horizontalConstraints)
+    func setBackgroundViewsConstraints() {
+        let constraints = [
+            backgroundView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            backgroundView.widthAnchor.constraint(equalToConstant: frame.width),
+            backgroundView.heightAnchor.constraint(equalTo: widthAnchor),
+            
+            logoImageView.widthAnchor.constraint(equalToConstant: 98),
+            logoImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 25),
+            logoImageView.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ]
+        NSLayoutConstraint.activate(constraints)
     }
     
-    func setUpConstraintsForLogIn() {
-        let views = ["image": barImage,
-                     "menu": menuButton]
-        let verticalConstraints = NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-7-[menu]-6-|",
-            options: NSLayoutConstraint.FormatOptions(),
-            metrics: nil,
-            views: views as [String : Any])
-        let horizontalConstraints = NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-25-[image]-199-[menu]-25-|",
-            options: NSLayoutConstraint.FormatOptions(),
-            metrics: nil,
-            views: views as [String : Any])
-        addConstraints(verticalConstraints)
-        addConstraints(horizontalConstraints)
+    func setMenuButtonConstraints() {
+        let constraints = [
+            
+            menuButton!.widthAnchor.constraint(equalToConstant: 28),
+            menuButton!.centerYAnchor.constraint(equalTo: centerYAnchor),
+            menuButton!.rightAnchor.constraint(equalTo: backgroundView.rightAnchor, constant: -25)
+//            menuButton?.widthAnchor.constraint(equalToConstant: 28)
+        ]
+        NSLayoutConstraint.activate(constraints)
+    }
+    
+    func setFilterButtonConstraints() {
+        let constraints = [
+
+            filterButton!.centerYAnchor.constraint(equalTo: centerYAnchor),
+            filterButton!.rightAnchor.constraint(equalTo: backgroundView.rightAnchor, constant: -98),
+        ]
+        NSLayoutConstraint.activate(constraints)
     }
     
     func setFilterButton() {
@@ -148,28 +156,4 @@ class BearNavigationBar: UINavigationBar {
              container.addSubview(self.filterButton!)
         }
     }
-    
-    func jogsConstraints() {
-        //setting
-        let views = ["image": barImage,
-                     "filter": filterButton,
-                     "menu": menuButton]
-        let menuVerticalConstraints = NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-7-[menu]-6-|",
-            metrics: nil,
-            views: views as [String : Any])
-        let filterVerticalConstraints = NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-6-[filter]-5-|",
-            metrics: nil,
-            views: views as [String : Any])
-        let horizontalConstraints = NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-25-[image]-128-[filter]-[menu]-25-|",
-            metrics: nil,
-            views: views as [String : Any])
-        container.addConstraints(filterVerticalConstraints)
-        container.addConstraints(horizontalConstraints)
-        container.addConstraints(menuVerticalConstraints)
-    }
-    
-    
 }
