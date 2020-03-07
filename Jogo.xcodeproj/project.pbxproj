@@ -27,6 +27,7 @@
 		1D25C3CF2412D12D00237FDA /* SFUIText-HeavyItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D25C3C32412D12D00237FDA /* SFUIText-HeavyItalic.ttf */; };
 		1D25C3D02412D12D00237FDA /* SFUIText-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D25C3C42412D12D00237FDA /* SFUIText-RegularItalic.ttf */; };
 		1D25C3D22412D7FE00237FDA /* CreateJogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D25C3D12412D7FE00237FDA /* CreateJogViewController.swift */; };
+		1D5C394C2413B79600BA7DA0 /* Jogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C394B2413B79600BA7DA0 /* Jogs.swift */; };
 		1D982F8024123D810083603F /* letMeInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D982F7F24123D810083603F /* letMeInButton.swift */; };
 		1DC9272A24124D4C0005F8FA /* navigationBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9272924124D4C0005F8FA /* navigationBarModel.swift */; };
 		1DC9272C2412549F0005F8FA /* alamofireRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9272B2412549F0005F8FA /* alamofireRequests.swift */; };
@@ -105,6 +106,7 @@
 		1D25C3C32412D12D00237FDA /* SFUIText-HeavyItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-HeavyItalic.ttf"; sourceTree = "<group>"; };
 		1D25C3C42412D12D00237FDA /* SFUIText-RegularItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-RegularItalic.ttf"; sourceTree = "<group>"; };
 		1D25C3D12412D7FE00237FDA /* CreateJogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateJogViewController.swift; sourceTree = "<group>"; };
+		1D5C394B2413B79600BA7DA0 /* Jogs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jogs.swift; sourceTree = "<group>"; };
 		1D982F7F24123D810083603F /* letMeInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = letMeInButton.swift; sourceTree = "<group>"; };
 		1DC9272924124D4C0005F8FA /* navigationBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = navigationBarModel.swift; sourceTree = "<group>"; };
 		1DC9272B2412549F0005F8FA /* alamofireRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alamofireRequests.swift; sourceTree = "<group>"; };
@@ -179,6 +181,13 @@
 			path = "sf-ui-text-2-cufonfonts";
 			sourceTree = "<group>";
 		};
+		1D5C394D2413B94D00BA7DA0 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		1D982F8124123E9C0083603F /* views */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,10 +241,12 @@
 				1D25C39B2412812800237FDA /* InfoViewController.swift */,
 				1D25C39D2412813300237FDA /* JogsViewController.swift */,
 				1D25C3D12412D7FE00237FDA /* CreateJogViewController.swift */,
+				1D5C394B2413B79600BA7DA0 /* Jogs.swift */,
 				1D25C3B62412CEAB00237FDA /* JogsTableViewController.swift */,
 				1D25C39F2412813F00237FDA /* ContactUsViewController.swift */,
 				1DFEB63B24110FB400097A55 /* LogInViewController.swift */,
 				1DE01482240D62540078D2C7 /* LaunchScreen.storyboard */,
+				1D5C394D2413B94D00BA7DA0 /* model */,
 				1DC9272824124D2C0005F8FA /* viewModel */,
 				1D982F8124123E9C0083603F /* views */,
 				1DE014AD240E75C70078D2C7 /* API */,
@@ -493,6 +504,7 @@
 				1D25C3A02412813F00237FDA /* ContactUsViewController.swift in Sources */,
 				1DD284F92412DD3E004D0745 /* RoundedRectangle.swift in Sources */,
 				1D25C39C2412812800237FDA /* InfoViewController.swift in Sources */,
+				1D5C394C2413B79600BA7DA0 /* Jogs.swift in Sources */,
 				1DFEB63C24110FB400097A55 /* LogInViewController.swift in Sources */,
 				1D982F8024123D810083603F /* letMeInButton.swift in Sources */,
 				1DE01477240D624F0078D2C7 /* SceneDelegate.swift in Sources */,

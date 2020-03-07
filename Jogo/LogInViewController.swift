@@ -42,14 +42,39 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
        guard let text = idTextField.text, !text.isEmpty else {
             return
         }
+
+        //Create acivity indicator
+        let myActivityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
+        
+
+        //Position activity indicator
+        view.addSubview(myActivityIndicator)
+        
+        myActivityIndicator.hidesWhenStopped = false
+        
+        myActivityIndicator.startAnimating()
+        
         request.login(uuid: text) { (ok) in
+            
             self.ok = ok
             if(self.ok) {
                 print("molodec")
                 self.performSegue(withIdentifier: "toHomePageSegue", sender: nil)
             }
         }
+        removeActivityIndicator(activityIndicator: myActivityIndicator)
     }
+    
+    func removeActivityIndicator(activityIndicator: UIActivityIndicatorView)
+    {
+        DispatchQueue.main.async
+         {
+                activityIndicator.stopAnimating()
+                activityIndicator.removeFromSuperview()
+        }
+    }
+    
+    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

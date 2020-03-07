@@ -160,7 +160,7 @@
                                     <segue destination="Xsb-Fa-BT5" kind="embed" id="SRt-7v-adA"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZKR-hC-7zG">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZKR-hC-7zG">
                                 <rect key="frame" x="0.0" y="44" width="375" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date from" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMw-We-g05">
@@ -309,11 +309,12 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="km" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Bea-4e-ar6" customClass="styledTextField" customModule="Jogo" customModuleProvider="target">
                                         <rect key="frame" x="35" y="85" width="236" height="31"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="distance"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="31" id="nCG-0j-kP9"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="13"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hgm-ML-zUu">
                                         <rect key="frame" x="35" y="64" width="54" height="15"/>
@@ -324,16 +325,18 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="00.00" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Qqa-JE-M2V" customClass="styledTextField" customModule="Jogo" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="hours" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Qqa-JE-M2V" customClass="styledTextField" customModule="Jogo" customModuleProvider="target">
                                         <rect key="frame" x="35" y="156" width="236" height="31"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="time"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="31" id="mVN-XY-WHB"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="13"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="dd.mm.yyyy" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="DVd-dR-g8y" customClass="styledTextField" customModule="Jogo" customModuleProvider="target">
                                         <rect key="frame" x="35" y="228" width="236" height="31"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="date"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="31" id="8di-zX-Gzj"/>
                                         </constraints>
