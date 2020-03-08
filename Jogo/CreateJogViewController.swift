@@ -23,16 +23,17 @@ class CreateJogViewController: UIViewController {
         timeTextField.delegate = self
         dateTextField.delegate = self
     }
-    
+
+    var ok = false
     @IBAction func saveButtonTapped(_ sender: Any) {
         
-        guard let distance = distanceTextView.text, distance.isEmpty else {
+        guard let distance = distanceTextView.text, !distance.isEmpty else {
             return
         }
-        guard let time = timeTextField.text, time.isEmpty else {
+        guard let time = timeTextField.text, !time.isEmpty else {
             return
         }
-        guard let date = dateTextField.text, date.isEmpty else {
+        guard let date = dateTextField.text, !date.isEmpty else {
             return
         }
         guard let timeFloat = Float(time) else {
@@ -41,9 +42,16 @@ class CreateJogViewController: UIViewController {
         guard let distanceFloat = Float(distance) else {
             return
         }
-        if(date.count == 9) {
-
+        if(date.count == 10) {
             saveJog(distance: distanceFloat, time: timeFloat, date: date)
+            AlamofireRequests().addJog(distance: distanceFloat, time: timeFloat, date: date)
+            { (ok) in
+                self.ok = ok
+                if(self.ok) {
+                print("molodec")
+                }
+            }
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
@@ -72,6 +80,7 @@ class CreateJogViewController: UIViewController {
         jog.setValue(distance, forKeyPath: "distance")
         jog.setValue(time, forKey: "time")
         jog.setValue(date, forKey: "date")
+        jog.setValue(AlamofireRequests().getCurrentUser(), forKey: "user_id")
 
 
         // 4
@@ -81,6 +90,7 @@ class CreateJogViewController: UIViewController {
         } catch let error as NSError {
         print("Could not save. \(error), \(error.userInfo)")
         }
+        
     }
     
     /*

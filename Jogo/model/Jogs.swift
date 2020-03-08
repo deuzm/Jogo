@@ -11,12 +11,15 @@ import CoreData
 
 class Jogs {
     
-    static let shared = Jogs(jogs: [])
+    static let shared = Jogs(jogs: [], user_id: 0)
     
     var jogs: [NSManagedObject]
     
-    private init(jogs: [NSManagedObject]) {
+    var user_id: Int
+    
+    private init(jogs: [NSManagedObject], user_id: Int) {
         self.jogs = jogs
+        self.user_id = user_id
     }
 }
 

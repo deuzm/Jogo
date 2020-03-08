@@ -48,12 +48,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         
 
         //Position activity indicator
-        view.addSubview(myActivityIndicator)
-        
-        myActivityIndicator.hidesWhenStopped = false
-        
-        myActivityIndicator.startAnimating()
-        
+//        view.addSubview(myActivityIndicator)
+//        
+//        myActivityIndicator.hidesWhenStopped = false
+//        
+//        myActivityIndicator.startAnimating()
+//        
         request.login(uuid: text) { (ok) in
             
             self.ok = ok
@@ -62,7 +62,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 self.performSegue(withIdentifier: "toHomePageSegue", sender: nil)
             }
         }
-        removeActivityIndicator(activityIndicator: myActivityIndicator)
+//        removeActivityIndicator(activityIndicator: myActivityIndicator)
     }
     
     func removeActivityIndicator(activityIndicator: UIActivityIndicatorView)

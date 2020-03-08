@@ -184,6 +184,7 @@
 		1D5C394D2413B94D00BA7DA0 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				1D5C394B2413B79600BA7DA0 /* Jogs.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -241,7 +242,6 @@
 				1D25C39B2412812800237FDA /* InfoViewController.swift */,
 				1D25C39D2412813300237FDA /* JogsViewController.swift */,
 				1D25C3D12412D7FE00237FDA /* CreateJogViewController.swift */,
-				1D5C394B2413B79600BA7DA0 /* Jogs.swift */,
 				1D25C3B62412CEAB00237FDA /* JogsTableViewController.swift */,
 				1D25C39F2412813F00237FDA /* ContactUsViewController.swift */,
 				1DFEB63B24110FB400097A55 /* LogInViewController.swift */,

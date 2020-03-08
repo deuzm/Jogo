@@ -16,6 +16,8 @@ class HomePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
+        AlamofireRequests().getCurrentUser()
+        
         // Do any additional setup after loading the view.
     }
     
