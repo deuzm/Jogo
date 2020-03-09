@@ -21,6 +21,7 @@ class HomePageViewController: UIViewController {
     
     func setUpViews() {
         view.addSubview(navigationBar)
+        AlamofireRequests().getAndSaveJogs()
     }
 
     /*

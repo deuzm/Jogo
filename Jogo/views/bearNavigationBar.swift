@@ -24,6 +24,7 @@ class BearNavigationBar: UINavigationBar {
         let view = UIView(frame: rect)
         view.clipsToBounds = true
         view.backgroundColor = fillColor
+        
         return view
     }()
     
@@ -40,6 +41,7 @@ class BearNavigationBar: UINavigationBar {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 28, height: 24))
         button.setBackgroundImage(menuImage, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.tag = 3
         return button
     }()
     
@@ -48,24 +50,25 @@ class BearNavigationBar: UINavigationBar {
         button.translatesAutoresizingMaskIntoConstraints = false
         if let jogsModel = self.navBarModel as? JogsNavigationBarModel {
             button.setImage(jogsModel.filterImage, for: .normal)
-            button.setImage(jogsModel.filterActiveImage, for: .reserved)
+            button.tag = 2
         }
         return button
     }()
     
-    
-    lazy var container: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 37))
-//           view.backgroundColor = .red
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+//
+//    lazy var container: UIView = {
+//        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 37))
+////           view.backgroundColor = .red
+//        view.translatesAutoresizingMaskIntoConstraints = false
+//        return view
+//    }()
     
     //initializers
     override init(frame: CGRect) {
         super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: CGFloat(77)))
         
         safeArea = self.layoutMarginsGuide
+        
         setUpViews()
     }
     
@@ -92,8 +95,9 @@ class BearNavigationBar: UINavigationBar {
         logoImage = navBarModel.logoImage
         fillColor = navBarModel.fillColor
         setFilterButton()
-        container.addSubview(logoImageView)
-        backgroundView.addSubview(container)
+        backgroundView.addSubview(logoImageView)
+//        container.addSubview(logoImageView)
+//        backgroundView.addSubview(container)
         addSubview(backgroundView)
         
         setBackgroundViewsConstraints()
@@ -102,7 +106,7 @@ class BearNavigationBar: UINavigationBar {
         
         if let menuImage = navBarModel.menuButtonImage {
             if let menu = menuButton {
-                container.addSubview(menu)
+                backgroundView.addSubview(menu)
                 if navBarModel is JogsNavigationBarModel {
                     setMenuButtonConstraints()
                     setFilterButtonConstraints()
@@ -119,13 +123,14 @@ class BearNavigationBar: UINavigationBar {
     
     func setBackgroundViewsConstraints() {
         let constraints = [
-            backgroundView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            backgroundView.widthAnchor.constraint(equalToConstant: frame.width),
-            backgroundView.heightAnchor.constraint(equalTo: widthAnchor),
+//            backgroundView.centerXAnchor.constraint(equalTo: centerXAnchor),
+//            backgroundView.widthAnchor.constraint(equalToConstant: frame.width),
+//            backgroundView.heightAnchor.constraint(equalTo: widthAnchor),
             
             logoImageView.widthAnchor.constraint(equalToConstant: 98),
-            logoImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 25),
-            logoImageView.centerYAnchor.constraint(equalTo: centerYAnchor)
+            logoImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
+            logoImageView.topAnchor.constraint(equalTo: topAnchor , constant: 20),
+            logoImageView.bottomAnchor.constraint(equalTo: bottomAnchor , constant: -20)
         ]
         NSLayoutConstraint.activate(constraints)
     }
@@ -133,10 +138,11 @@ class BearNavigationBar: UINavigationBar {
     func setMenuButtonConstraints() {
         let constraints = [
             
+            menuButton!.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -25),
+            menuButton!.topAnchor.constraint(equalTo: topAnchor, constant: 27),
+            menuButton!.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -26),
             menuButton!.widthAnchor.constraint(equalToConstant: 28),
-            menuButton!.centerYAnchor.constraint(equalTo: centerYAnchor),
-            menuButton!.rightAnchor.constraint(equalTo: backgroundView.rightAnchor, constant: -25)
-//            menuButton?.widthAnchor.constraint(equalToConstant: 28)
+            menuButton!.heightAnchor.constraint(equalToConstant: 28)
         ]
         NSLayoutConstraint.activate(constraints)
     }
@@ -144,8 +150,11 @@ class BearNavigationBar: UINavigationBar {
     func setFilterButtonConstraints() {
         let constraints = [
 
-            filterButton!.centerYAnchor.constraint(equalTo: centerYAnchor),
-            filterButton!.rightAnchor.constraint(equalTo: backgroundView.rightAnchor, constant: -98),
+            filterButton!.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -98),
+            filterButton!.topAnchor.constraint(equalTo: topAnchor, constant: 18),
+            filterButton!.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
+            filterButton!.widthAnchor.constraint(equalToConstant: 39),
+            filterButton!.heightAnchor.constraint(equalToConstant: 39)
         ]
         NSLayoutConstraint.activate(constraints)
     }
@@ -153,7 +162,7 @@ class BearNavigationBar: UINavigationBar {
     func setFilterButton() {
         //adding filter button on containter view
         if let jogsModel = navBarModel as? JogsNavigationBarModel {
-             container.addSubview(self.filterButton!)
+             backgroundView.addSubview(self.filterButton!)
         }
     }
 }

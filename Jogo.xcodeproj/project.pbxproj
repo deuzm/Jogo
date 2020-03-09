@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D11921024154B33000F00D8 /* Jog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D11920F24154B33000F00D8 /* Jog.swift */; };
 		1D25C39824125D3B00237FDA /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D25C39724125D3B00237FDA /* HomePageViewController.swift */; };
 		1D25C39A24125E8C00237FDA /* navigationBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D25C39924125E8C00237FDA /* navigationBarProtocol.swift */; };
 		1D25C39C2412812800237FDA /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D25C39B2412812800237FDA /* InfoViewController.swift */; };
@@ -27,8 +28,12 @@
 		1D25C3CF2412D12D00237FDA /* SFUIText-HeavyItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D25C3C32412D12D00237FDA /* SFUIText-HeavyItalic.ttf */; };
 		1D25C3D02412D12D00237FDA /* SFUIText-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D25C3C42412D12D00237FDA /* SFUIText-RegularItalic.ttf */; };
 		1D25C3D22412D7FE00237FDA /* CreateJogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D25C3D12412D7FE00237FDA /* CreateJogViewController.swift */; };
+		1D4C66E1241649C900F7180E /* RealmOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4C66E0241649C900F7180E /* RealmOperations.swift */; };
+		1D4C66E32416583D00F7180E /* JogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4C66E22416583D00F7180E /* JogTableViewCell.swift */; };
+		1D4C66E524165D0B00F7180E /* UIFont+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4C66E424165D0A00F7180E /* UIFont+Additions.swift */; };
 		1D5C394C2413B79600BA7DA0 /* Jogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C394B2413B79600BA7DA0 /* Jogs.swift */; };
 		1D982F8024123D810083603F /* letMeInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D982F7F24123D810083603F /* letMeInButton.swift */; };
+		1DC2ACBC2416BCE900CE2E8E /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC2ACBB2416BCE900CE2E8E /* DateFormatter.swift */; };
 		1DC9272A24124D4C0005F8FA /* navigationBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9272924124D4C0005F8FA /* navigationBarModel.swift */; };
 		1DC9272C2412549F0005F8FA /* alamofireRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9272B2412549F0005F8FA /* alamofireRequests.swift */; };
 		1DD284F92412DD3E004D0745 /* RoundedRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD284F82412DD3E004D0745 /* RoundedRectangle.swift */; };
@@ -46,7 +51,7 @@
 		1DFD6423241127DC00A18532 /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFD6422241127DC00A18532 /* UIColor+Additions.swift */; };
 		1DFD64252411287B00A18532 /* bearNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFD64242411287B00A18532 /* bearNavigationBar.swift */; };
 		1DFEB63C24110FB400097A55 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFEB63B24110FB400097A55 /* LogInViewController.swift */; };
-		E944B2C7B1899628E4EAD649 /* libPods-Jogo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D21BE658ED98AB262BFEE0C2 /* libPods-Jogo.a */; };
+		2BBCF17F742814772A5F0DBE /* Pods_Jogo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2143982D1C748D9C22BC0860 /* Pods_Jogo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +86,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1D11920F24154B33000F00D8 /* Jog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jog.swift; sourceTree = "<group>"; };
 		1D25C39724125D3B00237FDA /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		1D25C39924125E8C00237FDA /* navigationBarProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = navigationBarProtocol.swift; sourceTree = "<group>"; };
 		1D25C39B2412812800237FDA /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
@@ -106,8 +112,12 @@
 		1D25C3C32412D12D00237FDA /* SFUIText-HeavyItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-HeavyItalic.ttf"; sourceTree = "<group>"; };
 		1D25C3C42412D12D00237FDA /* SFUIText-RegularItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-RegularItalic.ttf"; sourceTree = "<group>"; };
 		1D25C3D12412D7FE00237FDA /* CreateJogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateJogViewController.swift; sourceTree = "<group>"; };
+		1D4C66E0241649C900F7180E /* RealmOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmOperations.swift; sourceTree = "<group>"; };
+		1D4C66E22416583D00F7180E /* JogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JogTableViewCell.swift; sourceTree = "<group>"; };
+		1D4C66E424165D0A00F7180E /* UIFont+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Additions.swift"; sourceTree = "<group>"; };
 		1D5C394B2413B79600BA7DA0 /* Jogs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jogs.swift; sourceTree = "<group>"; };
 		1D982F7F24123D810083603F /* letMeInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = letMeInButton.swift; sourceTree = "<group>"; };
+		1DC2ACBB2416BCE900CE2E8E /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		1DC9272924124D4C0005F8FA /* navigationBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = navigationBarModel.swift; sourceTree = "<group>"; };
 		1DC9272B2412549F0005F8FA /* alamofireRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alamofireRequests.swift; sourceTree = "<group>"; };
 		1DD284F82412DD3E004D0745 /* RoundedRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedRectangle.swift; sourceTree = "<group>"; };
@@ -131,9 +141,9 @@
 		1DFD6422241127DC00A18532 /* UIColor+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
 		1DFD64242411287B00A18532 /* bearNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bearNavigationBar.swift; sourceTree = "<group>"; };
 		1DFEB63B24110FB400097A55 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		2143982D1C748D9C22BC0860 /* Pods_Jogo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jogo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4985B9F8FF7FEC0321CDF54D /* Pods-Jogo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jogo.release.xcconfig"; path = "Target Support Files/Pods-Jogo/Pods-Jogo.release.xcconfig"; sourceTree = "<group>"; };
 		B06AE786782B782DAFABE132 /* Pods-Jogo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jogo.debug.xcconfig"; path = "Target Support Files/Pods-Jogo/Pods-Jogo.debug.xcconfig"; sourceTree = "<group>"; };
-		D21BE658ED98AB262BFEE0C2 /* libPods-Jogo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jogo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E944B2C7B1899628E4EAD649 /* libPods-Jogo.a in Frameworks */,
+				2BBCF17F742814772A5F0DBE /* Pods_Jogo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +194,8 @@
 		1D5C394D2413B94D00BA7DA0 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				1D11920F24154B33000F00D8 /* Jog.swift */,
+				1D5C394B2413B79600BA7DA0 /* Jogs.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -191,11 +203,12 @@
 		1D982F8124123E9C0083603F /* views */ = {
 			isa = PBXGroup;
 			children = (
+				1D4C66E22416583D00F7180E /* JogTableViewCell.swift */,
 				1DD284F82412DD3E004D0745 /* RoundedRectangle.swift */,
 				1DD284FA2412E1CE004D0745 /* styledTextField.swift */,
 				1DFD64242411287B00A18532 /* bearNavigationBar.swift */,
-				1DFD6422241127DC00A18532 /* UIColor+Additions.swift */,
 				1D982F7F24123D810083603F /* letMeInButton.swift */,
+				1DFD6422241127DC00A18532 /* UIColor+Additions.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -205,6 +218,7 @@
 			children = (
 				1DC9272924124D4C0005F8FA /* navigationBarModel.swift */,
 				1D25C39924125E8C00237FDA /* navigationBarProtocol.swift */,
+				1DC2ACBB2416BCE900CE2E8E /* DateFormatter.swift */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -235,14 +249,13 @@
 			isa = PBXGroup;
 			children = (
 				1DE0147A240D624F0078D2C7 /* Main.storyboard */,
-				1D25C39724125D3B00237FDA /* HomePageViewController.swift */,
 				1DE01474240D624F0078D2C7 /* AppDelegate.swift */,
 				1DE01476240D624F0078D2C7 /* SceneDelegate.swift */,
+				1D25C39724125D3B00237FDA /* HomePageViewController.swift */,
 				1D25C39B2412812800237FDA /* InfoViewController.swift */,
 				1D25C39D2412813300237FDA /* JogsViewController.swift */,
-				1D25C3D12412D7FE00237FDA /* CreateJogViewController.swift */,
-				1D5C394B2413B79600BA7DA0 /* Jogs.swift */,
 				1D25C3B62412CEAB00237FDA /* JogsTableViewController.swift */,
+				1D25C3D12412D7FE00237FDA /* CreateJogViewController.swift */,
 				1D25C39F2412813F00237FDA /* ContactUsViewController.swift */,
 				1DFEB63B24110FB400097A55 /* LogInViewController.swift */,
 				1DE01482240D62540078D2C7 /* LaunchScreen.storyboard */,
@@ -281,6 +294,7 @@
 			children = (
 				1DC9272B2412549F0005F8FA /* alamofireRequests.swift */,
 				1DE014A7240E6DA70078D2C7 /* RequestInterseptor.swift */,
+				1D4C66E0241649C900F7180E /* RealmOperations.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -288,6 +302,7 @@
 		1DFD641D2411278600A18532 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				1D4C66E424165D0A00F7180E /* UIFont+Additions.swift */,
 				1D25C3B82412D12D00237FDA /* sf-ui-text-2-cufonfonts */,
 				1DFD641A2411239D00A18532 /* SF-UI-Text-Bold.ttf */,
 			);
@@ -303,7 +318,7 @@
 				1D25C3A8241289E300237FDA /* SwiftyJSON.framework */,
 				1D25C3A5241289DF00237FDA /* SwiftKeychainWrapper.framework */,
 				1D25C3A1241289D900237FDA /* Alamofire.framework */,
-				D21BE658ED98AB262BFEE0C2 /* libPods-Jogo.a */,
+				2143982D1C748D9C22BC0860 /* Pods_Jogo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -329,6 +344,7 @@
 				1DE0146E240D624F0078D2C7 /* Frameworks */,
 				1DE0146F240D624F0078D2C7 /* Resources */,
 				1D25C3B324128C0500237FDA /* Embed Frameworks */,
+				0AEA9C822A7042E2CEF3FE45 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -459,6 +475,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0AEA9C822A7042E2CEF3FE45 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Jogo/Pods-Jogo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Jogo/Pods-Jogo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Jogo/Pods-Jogo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		3A710438AAE23861950293BD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -491,6 +524,9 @@
 				1DE0147F240D624F0078D2C7 /* Jogo.xcdatamodeld in Sources */,
 				1DC9272A24124D4C0005F8FA /* navigationBarModel.swift in Sources */,
 				1D25C3B72412CEAB00237FDA /* JogsTableViewController.swift in Sources */,
+				1D4C66E1241649C900F7180E /* RealmOperations.swift in Sources */,
+				1DC2ACBC2416BCE900CE2E8E /* DateFormatter.swift in Sources */,
+				1D4C66E32416583D00F7180E /* JogTableViewCell.swift in Sources */,
 				1D25C39E2412813300237FDA /* JogsViewController.swift in Sources */,
 				1D25C39A24125E8C00237FDA /* navigationBarProtocol.swift in Sources */,
 				1DFD64252411287B00A18532 /* bearNavigationBar.swift in Sources */,
@@ -502,8 +538,10 @@
 				1D25C39824125D3B00237FDA /* HomePageViewController.swift in Sources */,
 				1D25C3D22412D7FE00237FDA /* CreateJogViewController.swift in Sources */,
 				1D25C3A02412813F00237FDA /* ContactUsViewController.swift in Sources */,
+				1D4C66E524165D0B00F7180E /* UIFont+Additions.swift in Sources */,
 				1DD284F92412DD3E004D0745 /* RoundedRectangle.swift in Sources */,
 				1D25C39C2412812800237FDA /* InfoViewController.swift in Sources */,
+				1D11921024154B33000F00D8 /* Jog.swift in Sources */,
 				1D5C394C2413B79600BA7DA0 /* Jogs.swift in Sources */,
 				1DFEB63C24110FB400097A55 /* LogInViewController.swift in Sources */,
 				1D982F8024123D810083603F /* letMeInButton.swift in Sources */,
@@ -684,7 +722,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UNADQ24S97;
 				INFOPLIST_FILE = Jogo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -704,7 +742,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UNADQ24S97;
 				INFOPLIST_FILE = Jogo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

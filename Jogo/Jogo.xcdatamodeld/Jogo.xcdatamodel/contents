@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15508" systemVersion="19C57" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Jog" representedClassName="Jog" syncable="YES" codeGenerationType="class">
-        <attribute name="date" optional="YES" attributeType="String"/>
-        <attribute name="distance" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="time" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-    </entity>
+    <entity name="Jogg" representedClassName="Jogg" syncable="YES" codeGenerationType="class"/>
     <elements>
-        <element name="Jog" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="Jogg" positionX="-63" positionY="-18" width="128" height="43"/>
     </elements>
 </model>

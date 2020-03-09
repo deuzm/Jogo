@@ -7,40 +7,52 @@
 //
 
 import UIKit
+import RealmSwift
 
 class JogsTableViewController: UITableViewController {
 
+    var jogs: [Jog] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        let realm = try! Realm()
+        AlamofireRequests().getAndSaveJogs()
+        jogs = Array(realm.objects(Jog.self))
+        print(jogs)
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return jogs.count
     }
+    
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let dateLabel = cell.viewWithTag(3) as! UILabel
+        let speedLabel = cell.viewWithTag(4) as! UILabel
+        let distanceLabel = cell.viewWithTag(5) as! UILabel
+        let timeLabel = cell.viewWithTag(6) as! UILabel
+        
+        let distanceVal = jogs[indexPath.row].distance
+        let timeVal = jogs[indexPath.row].time
+        let speed = distanceVal / timeVal
+        
+        dateLabel.text = jogs[indexPath.row].date
+        distanceLabel.text = String(jogs[indexPath.row].distance)
+        speedLabel.text = String(speed.rounded())
+        timeLabel.text = String(jogs[indexPath.row].time)
 
         return cell
     }
-    */
+    
+    
 
     /*
     // Override to support conditional editing of the table view.

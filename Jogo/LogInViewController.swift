@@ -33,6 +33,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
 //        view.addGestureRecognizer(tap)
         navigationBar = BearNavigationBar()
         view.addSubview(navigationBar)
+        
 
     }
     
@@ -59,6 +60,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             self.ok = ok
             if(self.ok) {
                 print("molodec")
+                self.getUser()
                 self.performSegue(withIdentifier: "toHomePageSegue", sender: nil)
             }
         }
@@ -72,6 +74,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 activityIndicator.stopAnimating()
                 activityIndicator.removeFromSuperview()
         }
+    }
+    
+    func getUser() {
+        AlamofireRequests().getCurrentUser()
     }
     
     
