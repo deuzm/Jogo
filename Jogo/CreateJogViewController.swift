@@ -8,7 +8,7 @@
 
 import UIKit
 //import CoreData
-import RealmSwift
+//import RealmSwift
 
 class CreateJogViewController: UIViewController {
     

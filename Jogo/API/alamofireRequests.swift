@@ -7,9 +7,9 @@
 //
 
 import Foundation
-import Alamofire
+//import Alamofire
 import SwiftyJSON
-import RealmSwift
+//import RealmSwift
 
 class AlamofireRequests {
     

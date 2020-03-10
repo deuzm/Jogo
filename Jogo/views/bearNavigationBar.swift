@@ -55,14 +55,6 @@ class BearNavigationBar: UINavigationBar {
         return button
     }()
     
-//
-//    lazy var container: UIView = {
-//        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 37))
-////           view.backgroundColor = .red
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        return view
-//    }()
-    
     //initializers
     override init(frame: CGRect) {
         super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: CGFloat(77)))
@@ -141,8 +133,7 @@ class BearNavigationBar: UINavigationBar {
             menuButton!.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -25),
             menuButton!.topAnchor.constraint(equalTo: topAnchor, constant: 27),
             menuButton!.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -26),
-            menuButton!.widthAnchor.constraint(equalToConstant: 28),
-            menuButton!.heightAnchor.constraint(equalToConstant: 28)
+            menuButton!.widthAnchor.constraint(equalToConstant: 28)
         ]
         NSLayoutConstraint.activate(constraints)
     }
@@ -153,8 +144,7 @@ class BearNavigationBar: UINavigationBar {
             filterButton!.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -98),
             filterButton!.topAnchor.constraint(equalTo: topAnchor, constant: 18),
             filterButton!.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
-            filterButton!.widthAnchor.constraint(equalToConstant: 39),
-            filterButton!.heightAnchor.constraint(equalToConstant: 39)
+            filterButton!.widthAnchor.constraint(equalToConstant: 39)
         ]
         NSLayoutConstraint.activate(constraints)
     }
