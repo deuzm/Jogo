@@ -12,12 +12,14 @@ import RealmSwift
 class JogsTableViewController: UITableViewController {
 
     var jogs: [Jog] = []
+    var createJogVC: CreateJogViewController!
+    var tappedCell: IndexPath!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let realm = try! Realm()
         AlamofireRequests().getAndSaveJogs()
-        jogs = Array(realm.objects(Jog.self))
+        self.jogs = Array(realm.objects(Jog.self))
         print(jogs)
     }
 
@@ -52,51 +54,29 @@ class JogsTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+         tappedCell = indexPath
+         performSegue(withIdentifier: "createJogSegue", sender: self)
+    }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+
+        if let vc = segue.destination as? CreateJogViewController,
+            segue.identifier == "createJogSegue" {
+            let cell = tableView.cellForRow(at: tappedCell)
+            let dateLabel = cell?.viewWithTag(3) as! UILabel
+            let distanceLabel = cell?.viewWithTag(5) as! UILabel
+            let timeLabel = cell?.viewWithTag(6) as! UILabel
+            
+//            vc.dateTextField.text = dateLabel.text
+//            vc.distanceTextView.text = distanceLabel.text
+//            vc.timeTextField.text = timeLabel.text
+            
+            vc.jog = jogs[tappedCell.row]
+            vc.jogEdited = true
+            self.createJogVC = vc
+        }
+
     }
-    */
 
 }

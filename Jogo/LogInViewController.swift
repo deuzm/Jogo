@@ -29,8 +29,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
     
     func setUpViews() {
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(UIView.endEditing(_:)))
-//        view.addGestureRecognizer(tap)
         navigationBar = BearNavigationBar()
         view.addSubview(navigationBar)
         
@@ -65,6 +63,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             }
         }
         removeActivityIndicator(activityIndicator: myActivityIndicator)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? HomePageViewController {
+            AlamofireRequests().getAndSaveJogs()
+        }
     }
     
     func removeActivityIndicator(activityIndicator: UIActivityIndicatorView)

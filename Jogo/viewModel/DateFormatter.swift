@@ -100,7 +100,7 @@ class DateFormatter {
             let characterSet = CharacterSet(charactersIn: string)
             let isDigit = allowedCharacters.isSuperset(of: characterSet)
 
-            return rightFormat && isDigit && ddIsInBounds && mmIsInBounds
+            return isDigit && ddIsInBounds && mmIsInBounds && rightFormat 
             
         }
         
@@ -109,6 +109,6 @@ class DateFormatter {
         
         let characterSet = CharacterSet(charactersIn: string)
         return allowedCharacters.isSuperset(of: characterSet) &&
-                replacementText.isValidDouble(maxDecimalPlaces: 2)
+                replacementText.isValidDouble(maxDecimalPlaces: 10)
     }
 }

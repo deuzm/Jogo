@@ -12,7 +12,7 @@ import RealmSwift
 class RealmOperations {
     
     func saveJogsToRealm(distance: Float,
-                         date: String,
+                         date: Double,
                          time: Float,
                          id: String,
                          user_id: String) {
@@ -20,9 +20,24 @@ class RealmOperations {
         if(jog.id == "") {
             jog.id = id
         }
+        let dateFormatter = ISO8601DateFormatter()
+        
+        dateFormatter.formatOptions = [.withFullDate]
+        let formatter = DateFormatter()
+//        formatter.dateFormat = "dd.MM.yyyy"
+//        formatter.locale = Locale(identifier: "en_US")
+//
+//        print(formatter.string(from: Date(timeIntervalSinceReferenceDate: date)))
+//
+        let dddd = Date(timeIntervalSince1970: date)
+        var dateString = dateFormatter.string(from: dddd)
+//        var dateString = formatter.string(from: Date(timeIntervalSinceReferenceDate: date))
+        dateString = dateString.replacingOccurrences(of: "-", with: ".")
+        
+
         jog.user_id = user_id
         jog.time = time
-        jog.date = date
+        jog.date = dateString
         jog.distance = distance
         
         let user = User()

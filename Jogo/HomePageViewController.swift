@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class HomePageViewController: UIViewController {
     
@@ -19,11 +20,21 @@ class HomePageViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    var jogs: [Jog] = []
+    
     func setUpViews() {
         view.addSubview(navigationBar)
-        AlamofireRequests().getAndSaveJogs()
+        
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? JogsViewController {
+            let realm = try! Realm()
+            self.jogs = Array(realm.objects(Jog.self))
+            destination.jogs = jogs
+            destination.filtered = jogs
+        }
+    }
     /*
     // MARK: - Navigation
 

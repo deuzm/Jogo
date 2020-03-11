@@ -163,7 +163,7 @@
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s2R-up-c4Q">
                                         <rect key="frame" x="0.0" y="60" width="375" height="590"/>
                                         <connections>
-                                            <segue destination="Xsb-Fa-BT5" kind="embed" id="SRt-7v-adA"/>
+                                            <segue destination="Xsb-Fa-BT5" kind="embed" identifier="jogsTableViewSegue" id="SRt-7v-adA"/>
                                         </connections>
                                     </containerView>
                                     <view tag="7" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZKR-hC-7zG">
@@ -186,6 +186,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="dateFromEditingDidFinish:" destination="mv7-Vw-W4l" eventType="editingDidEnd" id="hoQ-7L-oK5"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oUL-NR-GqH">
                                                 <rect key="frame" x="213" y="24" width="51" height="16"/>
@@ -205,6 +208,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="dateToEditingDidFinish:" destination="mv7-Vw-W4l" eventType="editingDidEnd" id="Tra-cd-gXj"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
@@ -294,6 +300,8 @@
                         <outlet property="addButton" destination="nst-rZ-qMO" id="guc-iV-tVp"/>
                         <outlet property="animatedTopConstraint" destination="Lml-p2-F8P" id="ORf-k7-4GB"/>
                         <outlet property="createJogButton" destination="eZM-Ua-2hr" id="1JV-7l-OJ0"/>
+                        <outlet property="dateFromTextField" destination="0xY-V7-064" id="uf0-en-5tc"/>
+                        <outlet property="dateToTextField" destination="TkV-IW-3O6" id="cvT-Je-qLP"/>
                         <outlet property="filterBar" destination="ZKR-hC-7zG" id="gie-JD-mt3"/>
                         <outlet property="navigationBar" destination="kwo-o1-RPZ" id="xU8-aY-38a"/>
                         <outlet property="nothingIsThereLabel" destination="flf-mW-M1Z" id="vvN-Q9-UrU"/>
@@ -325,7 +333,7 @@
             <objects>
                 <viewController id="Q9I-Y9-a64" customClass="CreateJogViewController" customModule="Jogo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qi6-lx-zW9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="590"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SCO-kw-8qJ" customClass="BearNavigationBar" customModule="Jogo" customModuleProvider="target">
@@ -350,7 +358,7 @@
                                         <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hgm-ML-zUu">
-                                        <rect key="frame" x="35" y="64" width="54" height="15"/>
+                                        <rect key="frame" x="35" y="64" width="51" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="17i-g2-y3f"/>
                                         </constraints>
@@ -377,7 +385,7 @@
                                         <textInputTraits key="textInputTraits" textContentType="one-time-code"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnY-g0-BwY">
-                                        <rect key="frame" x="35" y="207" width="29" height="15"/>
+                                        <rect key="frame" x="35" y="207" width="27.5" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="xPL-bh-Ds4"/>
                                         </constraints>
@@ -386,7 +394,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hgh-kJ-6qQ">
-                                        <rect key="frame" x="34" y="136" width="30.5" height="15"/>
+                                        <rect key="frame" x="34" y="136" width="28.5" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="p12-tk-4nq"/>
                                         </constraints>
@@ -421,7 +429,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="saveButtonTapped:" destination="Q9I-Y9-a64" eventType="touchUpInside" id="4Lq-hK-Rzt"/>
+                                            <action selector="saveButtonTapped:" destination="Q9I-Y9-a64" eventType="touchUpInside" id="Ryg-CN-f9v"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -473,9 +481,11 @@
                         <outlet property="dateTextField" destination="DVd-dR-g8y" id="Lrt-kN-S7G"/>
                         <outlet property="distanceTextView" destination="Bea-4e-ar6" id="lMB-2i-Gvk"/>
                         <outlet property="timeTextField" destination="Qqa-JE-M2V" id="BSm-B0-U3Q"/>
+                        <segue destination="n34-Zw-RPD" kind="unwind" identifier="unwindSegue" unwindAction="unwindToViewControllerWithSegue:" id="But-vF-7XB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wzL-Gm-caK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="n34-Zw-RPD" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2168.8000000000002" y="816.34182908545733"/>
         </scene>
@@ -608,6 +618,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <accessibility key="accessibilityConfiguration" identifier="cell"/>
+                                <connections>
+                                    <segue destination="Q9I-Y9-a64" kind="presentation" identifier="createJogSegue" trigger="accessoryAction" modalPresentationStyle="fullScreen" id="T4G-8U-Xbv"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -628,4 +641,7 @@
         <image name="icon" width="87" height="87"/>
         <image name="sadRoundedSquareEmoticon" width="85" height="85"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="T4G-8U-Xbv"/>
+    </inferredMetricsTieBreakers>
 </document>

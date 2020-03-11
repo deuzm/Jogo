@@ -13,36 +13,39 @@ import SwiftyJSON
 
 class AlamofireRequests {
     
+    
     let baseURL = "https://jogtracker.herokuapp.com/api/v1/"
     
     func login(uuid: String, completion: @escaping(Bool) -> ())  {
-        
-    var ok = false
-    let parameters = ["uuid":"\(uuid)"]
-        
-    AF.request("\(baseURL)auth/uuidLogin", method: .post, parameters: parameters).responseJSON {
-            response in
-            switch response.result {
-            case.success(let value) :
-                let json = JSON(value)
-                
-                if let accessToken = json["response"]["access_token"].string {
-                    if storage.addAccessToken(value: accessToken) {
-                        ok = true
-                        completion(ok)
+        DispatchQueue.global(qos: .background).async {
+        var ok = false
+        let parameters = ["uuid":"\(uuid)"]
+            
+        AF.request("\(self.baseURL)auth/uuidLogin", method: .post, parameters: parameters).responseJSON {
+                response in
+                switch response.result {
+                case.success(let value) :
+                    let json = JSON(value)
+                    
+                    if let accessToken = json["response"]["access_token"].string {
+                        if storage.addAccessToken(value: accessToken) {
+                            ok = true
+                            completion(ok)
+                        }
                     }
+                case.failure(let error):
+                    print(error)
+                    ok = false
+                    completion(ok)
                 }
-            case.failure(let error):
-                print(error)
-                ok = false
-                completion(ok)
             }
         }
     }
     
     func getCurrentUser() {
+        DispatchQueue.global(qos: .background).async {
             
-            AF.request("\(baseURL)auth/user").responseJSON {
+            AF.request("\(self.baseURL)auth/user").responseJSON {
                 response in
                 switch response.result {
                 case.success(let value) :
@@ -71,55 +74,84 @@ class AlamofireRequests {
                 }
             }
         }
+    }
         
     func addJog(distance: Float, time: Float, date: String, completion: @escaping(Bool) -> ()){
-        
-        var ok = false
-        let parameters = [
-            "distance":"\(distance)",
-            "time":"\(time)",
-            "date":"\(date)",
-        ]
-            
-        AF.request("\(baseURL)data/jog", method: .post, parameters: parameters).responseJSON {
-            response in
-            switch response.result {
-            case.success(let value) :
-                let json = JSON(value)
-                debugPrint(json)
-            case.failure(let error):
-                print(error)
-                ok = false
-                completion(ok)
+        DispatchQueue.global(qos: .userInitiated).async {
+            var ok = false
+            let parameters = [
+                "distance":"\(distance)",
+                "time":"\(time)",
+                "date":"\(date)",
+            ]
+                
+            AF.request("\(self.baseURL)data/jog", method: .post, parameters: parameters).responseJSON {
+                response in
+                switch response.result {
+                case.success(let value) :
+                    let json = JSON(value)
+                    debugPrint(json)
+                case.failure(let error):
+                    print(error)
+                    ok = false
+                    completion(ok)
+                }
+            }
+        }
+    }
+    
+    
+    func updateJog(distance: Int, time: Float, date: String, jog_id: Int, user_id: String) {
+        DispatchQueue.global(qos: .background).async {
+            let parameters = [
+                "jog_id": "\(jog_id)",
+                "user_id": "\(user_id)",
+                "distance":"\(distance)",
+                "time":"\(time)",
+                "date":"\(date)"
+            ]
+            AF.request("\(self.baseURL)data/jog", method: .put, parameters: parameters).responseJSON {
+                response in
+                switch response.result {
+                case.success(let value) :
+                    let json = JSON(value)
+                    debugPrint(json)
+                case.failure(let error):
+                    print(error)
+                }
             }
         }
     }
     
     func getAndSaveJogs() {
-        let user = User()
-        AF.request("\(baseURL)data/sync").responseJSON {
-            response in
-            switch response.result {
-            case.success(let value) :
-                let json = JSON(value)
-                if let jogs = json["response"]["jogs"].array {
-                    for jog in jogs {
-                        if jog["user_id"].string! == "3" {
-                            if let distance = jog["distance"].float,
-                            let id = jog["id"].int,
-                            let date = jog["date"].int,
-                            let time = jog["time"].float,
+        DispatchQueue.global(qos: .background).async {
+            let user = User()
+            AF.request("\(self.baseURL)data/sync").responseJSON {
+                response in
+                switch response.result {
+                case.success(let value) :
+                    let json = JSON(value)
+                    print(json)
+                    if let jogs = json["response"]["jogs"].array {
+                        for jog in jogs {
+                            if jog["user_id"].string! == "3" {
+                                if let distance = jog["distance"].float,
+                                let id = jog["id"].int,
+                                let date = jog["date"].double,
+                                let time = jog["time"].float,
                                 let user_id = jog["user_id"].string {
-                                RealmOperations().saveJogsToRealm(distance: distance, date: String(date), time: time, id: String(id), user_id: user_id)
+                                RealmOperations().saveJogsToRealm(distance: distance, date: date, time: time, id: String(id), user_id: user_id)
+                                }
                             }
                         }
                     }
+                    
+                case.failure(let error):
+                    print(error)
                 }
-                
-            case.failure(let error):
-                print(error)
             }
         }
+        
     }
     
     
