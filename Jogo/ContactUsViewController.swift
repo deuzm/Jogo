@@ -9,22 +9,31 @@
 import UIKit
 
 class ContactUsViewController: UIViewController {
-
+    //MARK: - outlets
+    @IBOutlet weak var navigationBar: BearNavigationBar!
+    
+    //MARK: - main view setup
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(screenEdgeSwiped(_:)))
+        edgePan.edges = .left
+
+        view.addGestureRecognizer(edgePan)
+        
+        navigationBar.filterButton?.isHidden = true
+        navigationBar.menuButton?.addTarget(self, action: #selector(menuButtonTapped), for: .touchUpInside)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //MARK: - actions
+    @objc func screenEdgeSwiped(_ recognizer: UIScreenEdgePanGestureRecognizer) {
+        if recognizer.state == .recognized {
+            print("Screen edge swiped!")
+            performSegue(withIdentifier: "feedBackSegue", sender: self)
+        }
     }
-    */
-
+    
+    @objc func menuButtonTapped() {
+        performSegue(withIdentifier: "unwindToHomeViewController", sender: self)
+    }
 }

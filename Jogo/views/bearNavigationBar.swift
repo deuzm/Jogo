@@ -10,7 +10,7 @@ import UIKit
 
 class BearNavigationBar: UINavigationBar {
 
-    //properties
+    //MARK: - properties
     var safeArea = UILayoutGuide()
     var navBarModel: NavigationBarProtocol = BaseNavigationBarModel()
     
@@ -55,7 +55,7 @@ class BearNavigationBar: UINavigationBar {
         return button
     }()
     
-    //initializers
+    //MARK: - initialazers
     override init(frame: CGRect) {
         super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: CGFloat(77)))
         
@@ -81,6 +81,7 @@ class BearNavigationBar: UINavigationBar {
         setUpViews()
     }
     
+    //MARK: - views setup
     func setUpViews() {
         
         self.setValue(true, forKey: "hidesShadow")
@@ -113,12 +114,17 @@ class BearNavigationBar: UINavigationBar {
         
     }
     
+    func setFilterButton() {
+        //adding filter button on containter view
+        if let jogsModel = navBarModel as? JogsNavigationBarModel {
+             backgroundView.addSubview(self.filterButton!)
+        }
+    }
+    
+    //MARK: - constraint settings
+    
     func setBackgroundViewsConstraints() {
         let constraints = [
-//            backgroundView.centerXAnchor.constraint(equalTo: centerXAnchor),
-//            backgroundView.widthAnchor.constraint(equalToConstant: frame.width),
-//            backgroundView.heightAnchor.constraint(equalTo: widthAnchor),
-            
             logoImageView.widthAnchor.constraint(equalToConstant: 98),
             logoImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
             logoImageView.topAnchor.constraint(equalTo: topAnchor , constant: 20),
@@ -147,12 +153,5 @@ class BearNavigationBar: UINavigationBar {
             filterButton!.widthAnchor.constraint(equalToConstant: 39)
         ]
         NSLayoutConstraint.activate(constraints)
-    }
-    
-    func setFilterButton() {
-        //adding filter button on containter view
-        if let jogsModel = navBarModel as? JogsNavigationBarModel {
-             backgroundView.addSubview(self.filterButton!)
-        }
     }
 }

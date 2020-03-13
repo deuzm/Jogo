@@ -15,14 +15,16 @@ protocol isAbleToReceiveData {
 }
 
 class JogsViewController: UIViewController {
+    
+    //MARK: - outlets
 
-    @IBOutlet weak var dateFromTextField: styledTextField!
-    @IBOutlet weak var dateToTextField: styledTextField!
+    @IBOutlet weak var dateFromTextField: StyledTextField!
+    @IBOutlet weak var dateToTextField: StyledTextField!
     
     @IBOutlet weak var animatedTopConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var navigationBar: UINavigationBar!
-    @IBOutlet weak var createJogButton: letMeInButton!
+    @IBOutlet weak var createJogButton: LetMeInButton!
     @IBOutlet weak var nothingIsThereLabel: UILabel!
     @IBOutlet weak var sadFaceImageView: UIImageView!
     @IBOutlet weak var tableViewContainer: UIView!
@@ -30,30 +32,42 @@ class JogsViewController: UIViewController {
     
     @IBOutlet weak var addButton: UIButton!
     
+    //MARK: - properties
+    
     var jogsTableVC: JogsTableViewController!
     
-    
-    var filterIsInactive = true
+    var filterIsInactive = false
     
     var filterButton: UIButton = UIButton()
+    var menuButton: UIButton = UIButton()
     
     var jogs: [Jog] = [] 
     var filtered: [Jog] = []
+    var ok = false
     
-    @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
+    //MARK: - main view setup
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dateToTextField.delegate = self
+        dateFromTextField.delegate = self
+        jogs = jogs.sorted(by: {$0.date.toDate()! < $1.date.toDate()!})
         setUpViews()
-        // Do any additional setup after loading the view.
     }
+    
     func setUpViews() {
+        
+        view.bringSubviewToFront(navigationBar)
         
         navigationBar = navigationBar as! BearNavigationBar
         
         filterButton = navigationBar.viewWithTag(2) as! UIButton
         
-        filterButton.addTarget(self, action: #selector(self.filterButtonTapped), for: .touchUpInside)
+        filterButton.addTarget(self, action: #selector(filterButtonTapped), for: .touchUpInside)
+        
+        menuButton = navigationBar.viewWithTag(3) as! UIButton
+        
+        menuButton.addTarget(self, action: #selector(menuButtonTapped), for: .touchUpInside)
         
         //nothing is there look
         if jogs.isEmpty {
@@ -77,14 +91,10 @@ class JogsViewController: UIViewController {
             sadFaceImageView.isHidden = true
         }
         
-        self.animatedTopConstraint.constant  = 17
-        view.bringSubviewToFront(navigationBar)
-        view.bringSubviewToFront(view.viewWithTag(7)!)
-        
     }
     
     
-    
+    //MARK: - actions
     @IBAction func dateFromEditingDidFinish(_ sender: Any) {
         guard let dateFrom = dateFromTextField.text, !dateFrom.isEmpty else {
             filtered = jogs
@@ -109,23 +119,62 @@ class JogsViewController: UIViewController {
         }
         setDateFromTo(dateTo, to: true)
     }
+
+    @objc func menuButtonTapped() {
+        performSegue(withIdentifier: "unwindToHomeViewController", sender: self)
+    }
+
     
+    @objc func filterButtonTapped() {
+       dateFromTextField.text = ""
+       dateToTextField.text = ""
+       if filterIsInactive {
+           self.filtered = jogs
+           self.jogsTableVC.jogs = jogs
+           self.jogsTableVC.tableView.reloadData()
+           filterButton.setImage(UIImage(named: "filter"), for: .normal)
+           self.view.layoutIfNeeded()
+           UIView.animate(withDuration: 0.3) {
+               self.animatedTopConstraint.constant  = 17
+               self.view.layoutIfNeeded()
+           }
+       }
+       else {
+           filterButton.setImage(UIImage(named: "filterActive"), for: .normal)
+           self.view.layoutIfNeeded()
+           
+           UIView.animate(withDuration: 0.3) {
+               self.animatedTopConstraint.constant  = 77
+               self.view.layoutIfNeeded()
+           }
+       }
+       filterIsInactive = !filterIsInactive
+   }
+       
+   @IBAction func addButtonTapped(_ sender: Any) {
+       performSegue(withIdentifier: "createJogSegue", sender: self)
+   }
+    
+    @IBAction func unwindToViewController(segue: UIStoryboardSegue) {
+        if let source = segue.source as? CreateJogViewController {
+            
+            AlamofireRequests().getAndSaveJogs() {
+                (ok) in
+                self.ok = ok
+                if(!ok) {
+                    
+                }
+            }
+            
+            let realm = try! Realm()
+            self.jogs = Array(realm.objects(Jog.self)).sorted(by: {$0.date.toDate()! < $1.date.toDate()!})
+            self.filtered = self.jogs
+            self.jogsTableVC.jogs = self.jogs
+            
+            self.jogsTableVC.tableView.reloadData()
+        }
+    }
     func setDateFromTo(_ date: String, to: Bool) {
-        //Implementation for date in form of an int
-//        if let dateVar = Int(date) {
-//            filtered = filtered.filter {
-//                if let dateInt = Int($0.date) {
-//                    if(to) {
-//                        return dateInt < dateVar
-//                    }
-//                    else {
-//                        return dateInt > dateVar
-//                    }
-//
-//                }
-//                return false
-//            }
-//        } else
         if let datevar = date.toDate() {
             filtered = filtered.filter {
                 if let dateInt = ($0.date).toDate() {
@@ -137,7 +186,6 @@ class JogsViewController: UIViewController {
                         return dateInt.compare(datevar) == ComparisonResult.orderedAscending ||
                             dateInt.compare(datevar) == ComparisonResult.orderedSame
                     }
-                     
                 }
                 return false
             }
@@ -146,36 +194,8 @@ class JogsViewController: UIViewController {
         self.jogsTableVC.tableView.reloadData()
     }
     
-    @objc func filterButtonTapped() {
-        dateFromTextField.text = ""
-        dateToTextField.text = ""
-        if filterIsInactive {
-            self.filtered = jogs
-            self.jogsTableVC.jogs = jogs
-            self.jogsTableVC.tableView.reloadData()
-            filterButton.setImage(UIImage(named: "filter"), for: .normal)
-            self.view.layoutIfNeeded()
-            UIView.animate(withDuration: 0.3) {
-                self.animatedTopConstraint.constant  = 17
-                self.view.layoutIfNeeded()
-            }
-        }
-        else {
-            filterButton.setImage(UIImage(named: "filterActive"), for: .normal)
-            self.view.layoutIfNeeded()
-            
-            UIView.animate(withDuration: 0.3) {
-                self.animatedTopConstraint.constant  = 77
-                self.view.layoutIfNeeded()
-            }
-        }
-        filterIsInactive = !filterIsInactive
-    }
-    
-    @IBAction func addButtonTapped(_ sender: Any) {
-        performSegue(withIdentifier: "createJogSegue", sender: self)
-    }
-    
+   
+    // MARK: - segue handling
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if let vc = segue.destination as? JogsTableViewController,
@@ -184,35 +204,10 @@ class JogsViewController: UIViewController {
             vc.jogs = jogs
             self.jogsTableVC = vc
         }
-
-    }
-    
-    @IBAction func unwindToViewController(segue: UIStoryboardSegue) {
-        if let source = segue.source as? CreateJogViewController {
-            
-            AlamofireRequests().getAndSaveJogs()
-            
-            let realm = try! Realm()
-            self.jogs = Array(realm.objects(Jog.self))
-            self.filtered = self.jogs
-            self.jogsTableVC.jogs = self.jogs
-            
-            self.jogsTableVC.tableView.reloadData()
-        }
-    }
-    
-
-    
-}
-
-extension String {
-    func toDate() -> Date? {
-        let formatter = ISO8601DateFormatter()
-        formatter.formatOptions = [.withFullDate]
-        return formatter.date(from: self)
     }
 }
 
+//MARK: - text field delegate extension
 extension JogsViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -221,9 +216,9 @@ extension JogsViewController: UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
         if string.isEmpty { return true }
-        return DateFormatter().checkDateTextField(textField: textField, range: range, string: string)
+        
+        return DateTextFieldFormatter().checkDateTextField(textField: textField, range: range, string: string)
     }
     
 }

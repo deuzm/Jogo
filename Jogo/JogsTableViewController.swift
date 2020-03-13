@@ -10,16 +10,25 @@ import UIKit
 import RealmSwift
 
 class JogsTableViewController: UITableViewController {
-
+//   MARK: - properties
     var jogs: [Jog] = []
     var createJogVC: CreateJogViewController!
     var tappedCell: IndexPath!
+    var ok = false
     
+//   MARK: - main view setup
     override func viewDidLoad() {
         super.viewDidLoad()
         let realm = try! Realm()
-        AlamofireRequests().getAndSaveJogs()
+        AlamofireRequests().getAndSaveJogs() {
+            (ok) in
+            self.ok = ok
+            if(!ok) {
+                print("didn't got jogs")
+            }
+        }
         self.jogs = Array(realm.objects(Jog.self))
+        jogs = jogs.sorted(by: {$0.date.toDate()! < $1.date.toDate()!})
         print(jogs)
     }
 
@@ -44,11 +53,11 @@ class JogsTableViewController: UITableViewController {
         
         let distanceVal = jogs[indexPath.row].distance
         let timeVal = jogs[indexPath.row].time
-        let speed = distanceVal / timeVal
+        let speed = (distanceVal) / (timeVal != 0 ? timeVal : MAXFLOAT)
         
         dateLabel.text = jogs[indexPath.row].date
         distanceLabel.text = String(jogs[indexPath.row].distance)
-        speedLabel.text = String(speed.rounded())
+        speedLabel.text = String(speed.rounded(toPlaces: 3))
         timeLabel.text = String(jogs[indexPath.row].time)
 
         return cell
@@ -59,24 +68,16 @@ class JogsTableViewController: UITableViewController {
          performSegue(withIdentifier: "createJogSegue", sender: self)
     }
     
+    //MARK: - segue handling
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if let vc = segue.destination as? CreateJogViewController,
             segue.identifier == "createJogSegue" {
-            let cell = tableView.cellForRow(at: tappedCell)
-            let dateLabel = cell?.viewWithTag(3) as! UILabel
-            let distanceLabel = cell?.viewWithTag(5) as! UILabel
-            let timeLabel = cell?.viewWithTag(6) as! UILabel
-            
-//            vc.dateTextField.text = dateLabel.text
-//            vc.distanceTextView.text = distanceLabel.text
-//            vc.timeTextField.text = timeLabel.text
-            
+        
             vc.jog = jogs[tappedCell.row]
             vc.jogEdited = true
+            
             self.createJogVC = vc
         }
-
     }
-
 }

@@ -12,15 +12,26 @@ import RealmSwift
 
 class CreateJogViewController: UIViewController {
     
-    @IBOutlet weak var distanceTextView: styledTextField!
-    @IBOutlet weak var timeTextField: styledTextField!
-    @IBOutlet weak var dateTextField: styledTextField!
+    //MARK: - properties
+    
+    @IBOutlet weak var distanceTextView: StyledTextField!
+    @IBOutlet weak var timeTextField: StyledTextField!
+    @IBOutlet weak var dateTextField: StyledTextField!
+    @IBOutlet weak var navigationBar: BearNavigationBar!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var jogEdited = false
     var jog: Jog? = Jog()
+    var jogs: [Jog] = []
+    
+    //MARK: - main view setup
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationBar.filterButton?.isHidden = true
+        navigationBar.menuButton?.addTarget(self, action: #selector(menuButtonTapped), for: .touchUpInside)
+        
         if(jogEdited) {
             distanceTextView.text = String(jog!.distance)
             timeTextField.text = String(jog!.time)
@@ -32,73 +43,136 @@ class CreateJogViewController: UIViewController {
         
     }
     
-    @IBAction func saveButtonTapped(_ sender: Any) {
-    guard let distance = distanceTextView.text, !distance.isEmpty else {
-                return
-            }
-            guard let time = timeTextField.text, !time.isEmpty else {
-                return
-            }
-            guard let date = dateTextField.text, !date.isEmpty else {
-                return
-            }
-            guard let timeFloat = Float(time) else {
-                return
-            }
-            guard let distanceFloat = Float(distance) else {
-                return
-            }
-            if(jogEdited == true) {
-                self.updateJog(distance: distanceFloat, time: timeFloat, date: date)
-                performSegue(withIdentifier: "unwindSegue", sender: self)
-            }
-            else {
-                self.saveJog(distance: distanceFloat, time: timeFloat, date: date)
-                performSegue(withIdentifier: "unwindSegue", sender: self)
-            }
-    //        if(date.count == 10) {
-
-    //            saveJog(distance: distanceFloat, time: timeFloat, date: date)
-    //        }
+    //MARK: - actions
+    
+    @objc func menuButtonTapped() {
+        performSegue(withIdentifier: "unwindToHomeViewController", sender: self)
     }
+    
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        guard let distance = distanceTextView.text, !distance.isEmpty else {
+            AlertHelper().showErrorAlert(withMessage: "Distance is empty", vc: self)
+            return
+        }
+        guard let time = timeTextField.text, !time.isEmpty else {
+            AlertHelper().showErrorAlert(withMessage: "Time is empty", vc: self)
+            return
+        }
+        guard let date = dateTextField.text, !date.isEmpty else {
+            AlertHelper().showErrorAlert(withMessage: "Date is empty", vc: self)
+            return
+        }
+        guard let timeFloat = Float(time) else {
+            return
+        }
+        guard let distanceFloat = Float(distance) else {
+            return
+        }
+        
+        if(self.jogEdited == true) {
+            self.updateJog(distance: distanceFloat, time: timeFloat, date: date)
+        }
+        else {
+            self.saveJog(distance: distanceFloat, time: timeFloat, date: date)
+        }
+    }
+        
+    
     
     @IBAction func closeButtonTapped(_ sender: Any) {
-        performSegue(withIdentifier: "unwindSegue", sender: self)
-    }
-    
-
-    var ok = true
-    func updateJog(distance: Float, time: Float, date: String) {
-        print(date)
-        AlamofireRequests().updateJog(distance: Int(distance), time: time, date: date, jog_id: Int(jog!.id!) ?? 0, user_id: jog!.user_id)
-    }
-    
-    func saveJog(distance: Float, time: Float, date: String) {
-        jog!.distance = distance
-        jog!.time = time
-        jog!.date = date
-        AlamofireRequests().addJog(distance: distance, time: time, date: date) { (ok) in
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+        
+        let realm = try! Realm()
+        AlamofireRequests().getAndSaveJogs() { (ok)
+            in
             self.ok = ok
-            if(ok)
-            {
-                print("molodeccc")
+            if(ok) {
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "unwindSegue", sender: self)
+                    self.activityIndicator.stopAnimating()
+                }
+
             }
         }
     }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? JogsViewController {
-            
-            AlamofireRequests().getAndSaveJogs()
-            let realm = try! Realm()
-            destination.jogsTableVC.jogs = Array(realm.objects(Jog.self))
-            destination.jogsTableVC.tableView.reloadData()
+        
+    //MARK: - save/update jog functions
+    var ok = false
+    
+    func updateJog(distance: Float, time: Float, date: String) {
+        print(date)
+        ok = false
+        activityIndicator.startAnimating()
+        activityIndicator.isHidden = false
+            AlamofireRequests().updateJog(distance: Int(distance), time: time, date: date, jog_id: Int(self.jog!.id!) ?? 0, user_id: self.jog!.user_id) {
+                (ok) in
+                    
+                self.ok = ok
+                if(!ok) {
+                    AlertHelper().showErrorAlert(withMessage: "Could not update jog", vc: self)
+                }
+                else {
+                    AlamofireRequests().getAndSaveJogs() {
+                    (ok) in
+                    self.ok = ok
+                    if(self.ok) {
+                        let realm = try! Realm()
+                        self.jogs = Array(realm.objects(Jog.self)).sorted(by:
+                                { $0.date.toDate()! < $1.date.toDate()! })
+                        DispatchQueue.main.async {
+                            self.performSegue(withIdentifier: "unwindSegue", sender: self)
+                            self.activityIndicator.stopAnimating()
+                        }
+                    }
+                }
+            }
         }
     }
     
+    
+    
+    func saveJog(distance: Float, time: Float, date: String) {
+        self.jog!.distance = distance
+        self.jog!.time = time
+        self.jog!.date = date
+        activityIndicator.startAnimating()
+        activityIndicator.isHidden = false
+        AlamofireRequests().addJog(distance: distance, time: time, date: date) {
+            (ok) in
+            self.ok = ok
+            if(!ok) {
+                AlertHelper().showErrorAlert(withMessage: "Could not save jog", vc: self)
+            }
+            else {
+                AlamofireRequests().getAndSaveJogs() {
+                    (ok) in
+                    self.ok = ok
+                    if(self.ok) {
+                        let realm = try! Realm()
+                        self.jogs = Array(realm.objects(Jog.self)).sorted(by:
+                                { $0.date.toDate()! < $1.date.toDate()! })
+                        DispatchQueue.main.async {
+                            self.performSegue(withIdentifier: "unwindSegue", sender: self)
+                            self.activityIndicator.stopAnimating()
+                        }
+                    }
+                }
+            }
+        }
+    }
+//MARK: - segue handling
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? JogsViewController {
+            destination.jogsTableVC.jogs = self.jogs
+            print(self.jogs)
+            destination.jogsTableVC.tableView.reloadData()
+            
+        }
+    }
 }
-
-
+   
+//MARK: - text field delegate extension
 extension CreateJogViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -113,27 +187,7 @@ extension CreateJogViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         if string.isEmpty { return true }
-        return DateFormatter().checkDateTextField(textField: textField, range: range, string: string)
+        return DateTextFieldFormatter().checkDateTextField(textField: textField, range: range, string: string)
     }
     
-}
-
-extension String {
-  func isValidDouble(maxDecimalPlaces: Int) -> Bool {
-    let formatter = NumberFormatter()
-    formatter.allowsFloats = true
-    let decimalSeparator = formatter.decimalSeparator ?? "."
-    
-    if formatter.number(from: self) != nil {
-      let split = self.components(separatedBy: decimalSeparator)
-
-      
-      let digits = split.count == 2 ? split.last ?? "" : ""
-
-        
-      return digits.count <= maxDecimalPlaces
-    }
-
-    return false
-  }
 }

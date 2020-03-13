@@ -8,10 +8,11 @@
 
 import UIKit
 
-class DateFormatter {
+class DateTextFieldFormatter {
     
+//MARK: - check date textField function
     func checkDateTextField(textField: UITextField, range: NSRange, string: String) -> Bool {
-        var charCount = textField.text?.count
+        let charCount = textField.text?.count
         
         var allowedCharacters: CharacterSet
         allowedCharacters = CharacterSet(charactersIn:"0123456789.")
@@ -58,40 +59,49 @@ class DateFormatter {
             }
             
             if !(string == "") {
-            if(charCount == 1) {
-                if let num = Int(textField.text!) {
-                    if(num > 3) {
-                        return false
+                if(charCount == 1) {
+                    if let num = Int(textField.text!) {
+                        if(num > 3) {
+                            return false
+                        }
                     }
                 }
-            }
-            if(charCount == 2) {
-                if let num = Int(String((textField.text?.last)!)) {
-                    dd = textField.text!
-                    if(dd.first == "3") {
+                //checking that if the date begins with 3, the second digit is not greater than 1
+                if(charCount == 2) {
+                    if let num = Int(String((textField.text?.last)!)) {
+                        dd = textField.text!
+                        if(dd.first == "3") {
+                            if(num > 1) {
+                                return false
+                            }
+                        }
+                    }
+                }
+                //checking that first char of month is not greater than 1
+                if (charCount == 4) {
+                    if let num = Int(String((textField.text?.last)!)) {
+                        if num > 1 {
+                            return false
+                        }
+                    }
+                }
+                if(charCount == 5) {
+                    //february check
+                    let num = (textField.text)!
+                    if(num.suffix(3) == "02.") {
+                        dd = String(num.prefix(2))
+                        let numDd = Int(dd)!
+                        if(numDd > 29) {
+                            textField.text! = "28.02."
+                            return false
+                        }
+                    }
+                    if let num = Int(String((textField.text?.last)!)) {
                         if(num > 1) {
                             return false
                         }
                     }
                 }
-            }
-            if(charCount == 5) {
-                //february check
-                let num = (textField.text)!
-                if(num.suffix(3) == "02.") {
-                    dd = String(num.prefix(2))
-                    let numDd = Int(dd)!
-                    if(numDd > 29) {
-                        textField.text! = "28.02."
-                        return false
-                    }
-                }
-                if let num = Int(String((textField.text?.last)!)) {
-                    if(num > 1) {
-                        return false
-                    }
-                }
-            }
             }
             
             let rightFormat = !(textField.text!.count > 9 && (string.count) > range.length)
@@ -109,6 +119,7 @@ class DateFormatter {
         
         let characterSet = CharacterSet(charactersIn: string)
         return allowedCharacters.isSuperset(of: characterSet) &&
-                replacementText.isValidDouble(maxDecimalPlaces: 10)
+                replacementText.isValidDouble(maxDecimalPlaces: 5)
     }
 }
+

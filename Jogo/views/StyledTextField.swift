@@ -8,13 +8,13 @@
 
 import UIKit
 
-@IBDesignable class styledTextField: UITextField {
+@IBDesignable class StyledTextField: UITextField {
 
     @IBInspectable var cornerRadius: CGFloat = 7
     @IBInspectable var borderColor = UIColor.warmGrey
     @IBInspectable var bgColor = UIColor.whiteThree
     @IBInspectable var borderWidth = CGFloat(1)
-    @IBInspectable var textFont = UIFont(name: "SF-UI-Text-Regular", size: CGFloat(13))
+    @IBInspectable var textFont = UIFont.textStyle6
     
     override func draw(_ rect: CGRect) {
         layer.cornerRadius = cornerRadius

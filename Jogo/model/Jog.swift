@@ -21,18 +21,3 @@ class Jog: Object {
     }
     
 }
-
-class User: Object {
-    @objc dynamic var id: String? = ""
-    @objc dynamic var email = ""
-    @objc dynamic var phone = ""
-    @objc dynamic var role = ""
-    @objc dynamic var first_name = ""
-    @objc dynamic var last_name = ""
-    var jogs = List<Jog>()
-    
-    override class func primaryKey() -> String? {
-        return "id"
-    }
-    
-}

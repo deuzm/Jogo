@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class letMeInButton: UIButton {
+@IBDesignable class LetMeInButton: UIButton {
 
     @IBInspectable var cornerRadius: CGFloat = 30
     @IBInspectable var borderWidth: CGFloat = 3

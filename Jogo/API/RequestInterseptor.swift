@@ -25,22 +25,26 @@ final class RequestInterceptor: Alamofire.RequestInterceptor {
     }
     
     func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
+        let reachable = NetworkReachabilityManager()?.isReachable ?? false
+        if !reachable{
+            completion(.failure(NSError.NoInternet))
+        }
         guard urlRequest.url?.absoluteString.hasPrefix("https://jogtracker.herokuapp.com") == true else {
             return completion(.success(urlRequest))
         }
         var urlRequest = urlRequest
         urlRequest.headers.update(.authorization(bearerToken: storage.accessToken))
         
-        completion(.success(urlRequest))
+         completion(.success(urlRequest))
     }
     
-//    func retry(_ request: Request, for session: Session, dueTo error: Error, completion: @escaping (RetryResult) -> Void) {
-//        guard let response = request.task?.response as? HTTPURLResponse, response.statusCode == 401 else {
-//            /// The request did not fail due to a 401 Unauthorized response.
-//            /// Return the original error and don't retry the request.
-//            return completion(.doNotRetryWithError(error))
-//        }
-//
+    func retry(_ request: Request, for session: Session, dueTo error: Error, completion: @escaping (RetryResult) -> Void) {
+        guard let response = request.task?.response as? HTTPURLResponse, response.statusCode == 401 else {
+            /// The request did not fail due to a 401 Unauthorized response.
+            /// Return the original error and don't retry the request.
+            return completion(.doNotRetryWithError(error))
+        }
+
 //        refreshToken { [weak self] result in
 //            guard let self = self else { return }
 //
@@ -52,8 +56,8 @@ final class RequestInterceptor: Alamofire.RequestInterceptor {
 //            case .failure(let error):
 //                completion(.doNotRetryWithError(error))
 //            }
-//        }
-//    }
+        }
+    }
     
     
 //    struct TokenResponse: Decodable {
@@ -70,6 +74,17 @@ final class RequestInterceptor: Alamofire.RequestInterceptor {
 //        }
 //
 //    }
+//}
+
+extension NSError  {
+
+static func createWithLocalizedDesription(withCode code:Int = 204,localizedDescription:String) -> NSError{
+    return  NSError(domain: "<your bundle id>", code:code, userInfo: [NSLocalizedDescriptionKey : localizedDescription])
+}
+static var NoInternet : NSError {
+    return createWithLocalizedDesription(withCode: -1009,localizedDescription:"Please check your internet connection")
+}
+
 }
 
 class KeyChainStorage: AccessTokenStorage {
@@ -87,6 +102,7 @@ class KeyChainStorage: AccessTokenStorage {
     }
     
 }
+
 
 let storage = KeyChainStorage()
 let interceptor = RequestInterceptor(storage: storage)

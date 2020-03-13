@@ -1,3 +1,5 @@
+platform :ios, '13.2'
+
 target 'Jogo' do
   use_frameworks!
   pod 'SwiftKeychainWrapper'
