@@ -19,17 +19,6 @@ class JogsTableViewController: UITableViewController {
 //   MARK: - main view setup
     override func viewDidLoad() {
         super.viewDidLoad()
-        let realm = try! Realm()
-        AlamofireRequests().getAndSaveJogs() {
-            (ok) in
-            self.ok = ok
-            if(!ok) {
-                print("didn't got jogs")
-            }
-        }
-        self.jogs = Array(realm.objects(Jog.self))
-        jogs = jogs.sorted(by: {$0.date.toDate()! < $1.date.toDate()!})
-        print(jogs)
     }
 
     // MARK: - Table view data source

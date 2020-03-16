@@ -82,18 +82,9 @@ class CreateJogViewController: UIViewController {
     @IBAction func closeButtonTapped(_ sender: Any) {
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
-        
-        let realm = try! Realm()
-        AlamofireRequests().getAndSaveJogs() { (ok)
-            in
-            self.ok = ok
-            if(ok) {
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "unwindSegue", sender: self)
-                    self.activityIndicator.stopAnimating()
-                }
-
-            }
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "unwindSegue", sender: self)
+            self.activityIndicator.stopAnimating()
         }
     }
         
@@ -101,7 +92,7 @@ class CreateJogViewController: UIViewController {
     var ok = false
     
     func updateJog(distance: Float, time: Float, date: String) {
-        print(date)
+        print("\(date) --------------- update jog vc")
         ok = false
         activityIndicator.startAnimating()
         activityIndicator.isHidden = false
@@ -117,9 +108,6 @@ class CreateJogViewController: UIViewController {
                     (ok) in
                     self.ok = ok
                     if(self.ok) {
-                        let realm = try! Realm()
-                        self.jogs = Array(realm.objects(Jog.self)).sorted(by:
-                                { $0.date.toDate()! < $1.date.toDate()! })
                         DispatchQueue.main.async {
                             self.performSegue(withIdentifier: "unwindSegue", sender: self)
                             self.activityIndicator.stopAnimating()
@@ -149,9 +137,6 @@ class CreateJogViewController: UIViewController {
                     (ok) in
                     self.ok = ok
                     if(self.ok) {
-                        let realm = try! Realm()
-                        self.jogs = Array(realm.objects(Jog.self)).sorted(by:
-                                { $0.date.toDate()! < $1.date.toDate()! })
                         DispatchQueue.main.async {
                             self.performSegue(withIdentifier: "unwindSegue", sender: self)
                             self.activityIndicator.stopAnimating()

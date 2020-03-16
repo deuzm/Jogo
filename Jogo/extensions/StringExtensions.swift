@@ -32,7 +32,10 @@ extension String {
 extension String {
     func toDate() -> Date? {
         let formatter = DateFormatter()
+        formatter.timeZone = TimeZone.current
         formatter.dateFormat = "dd.MM.yyyy"
+        formatter.locale = Locale(identifier: "en_US")
+//        print("\(self) -------------------- inside string")
         return formatter.date(from: self)
     }
 }

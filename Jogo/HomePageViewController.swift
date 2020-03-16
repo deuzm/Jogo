@@ -38,15 +38,13 @@ class HomePageViewController: UIViewController {
         
         activityIndicator.startAnimating()
         activityIndicator.isHidden = false
-        DispatchQueue.global(qos: .background).async {
-            let realm = try! Realm()
-            self.jogs = Array(realm.objects(Jog.self))
-            self.setWeeks()
-            DispatchQueue.main.async {
-                self.activityIndicator.stopAnimating()
-                self.performSegue(withIdentifier: "statsSegue", sender: self)
-            }
+
+        self.setWeeks()
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+            self.performSegue(withIdentifier: "statsSegue", sender: self)
         }
+        
         
     }
     
@@ -55,8 +53,7 @@ class HomePageViewController: UIViewController {
         activityIndicator.startAnimating()
         activityIndicator.isHidden = false
         DispatchQueue.global(qos: .background).async {
-            let realm = try! Realm()
-            self.jogs = Array(realm.objects(Jog.self))
+            
             DispatchQueue.main.async {
                 self.activityIndicator.stopAnimating()
                 self.performSegue(withIdentifier: "jogsSegue", sender: self)
@@ -70,8 +67,7 @@ class HomePageViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if let destination = segue.destination as? JogsViewController {
-            let realm = try! Realm()
-            self.jogs = Array(realm.objects(Jog.self))
+            
             destination.jogs = jogs
             destination.filtered = jogs
 
@@ -84,6 +80,7 @@ class HomePageViewController: UIViewController {
     }
     //MARK: - setting weeks for stats
     func setWeeks() {
+
         jogs = jogs.sorted(by: { $0.date.toDate()! < $1.date.toDate()! })
         
         var weekCounter = 0
@@ -92,7 +89,9 @@ class HomePageViewController: UIViewController {
         var previousWeek: Int = 0
         
         for jog in jogs {
+            print(jog.date)
             let jogDate = jog.date.toDate()!
+            print(jogDate)
             let weekOfYear = calendar.component(.weekOfYear, from: jogDate)
             let year = calendar.component(.year, from: jogDate)
             
@@ -162,7 +161,6 @@ class HomePageViewController: UIViewController {
             }
         }
         representitiveWeeks.sort(by: { $0.date.toDate()! < $1.date.toDate()! })
-        print(representitiveWeeks)
     }
 }
 

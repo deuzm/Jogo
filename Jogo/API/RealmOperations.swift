@@ -11,6 +11,10 @@ import RealmSwift
 
 class RealmOperations {
     
+    init() {
+        migration()
+    }
+    
     func saveJogsToRealm(distance: Float,
                          date: Double,
                          time: Float,
@@ -22,10 +26,16 @@ class RealmOperations {
         }
  
         let formatter = DateFormatter()
+        formatter.timeZone = TimeZone.current
         formatter.dateFormat = "dd.MM.yyyy"
         formatter.locale = Locale(identifier: "en_US")
-        var dateString = formatter.string(from: Date(timeIntervalSince1970: date))
+        formatter.calendar = Calendar(identifier: .gregorian)
+        let dateString = formatter.string(from: Date(timeIntervalSince1970: date))
+//        print("\(dateString.toDate()!) ------- todate" )
+//        print("\(dateString) =========== dateString")
 //        print(dateString)
+        print(dateString)
+        print(date)
         jog.user_id = user_id
         jog.time = time
         jog.date = dateString

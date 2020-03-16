@@ -51,7 +51,6 @@ class JogsViewController: UIViewController {
         super.viewDidLoad()
         dateToTextField.delegate = self
         dateFromTextField.delegate = self
-        jogs = jogs.sorted(by: {$0.date.toDate()! < $1.date.toDate()!})
         setUpViews()
     }
     
@@ -158,22 +157,13 @@ class JogsViewController: UIViewController {
     @IBAction func unwindToViewController(segue: UIStoryboardSegue) {
         if let source = segue.source as? CreateJogViewController {
             
-            AlamofireRequests().getAndSaveJogs() {
-                (ok) in
-                self.ok = ok
-                if(!ok) {
-                    
-                }
-            }
-            
-            let realm = try! Realm()
-            self.jogs = Array(realm.objects(Jog.self)).sorted(by: {$0.date.toDate()! < $1.date.toDate()!})
             self.filtered = self.jogs
             self.jogsTableVC.jogs = self.jogs
             
             self.jogsTableVC.tableView.reloadData()
         }
     }
+    
     func setDateFromTo(_ date: String, to: Bool) {
         if let datevar = date.toDate() {
             filtered = filtered.filter {
@@ -200,7 +190,6 @@ class JogsViewController: UIViewController {
 
         if let vc = segue.destination as? JogsTableViewController,
             segue.identifier == "jogsTableViewSegue" {
-            
             vc.jogs = jogs
             self.jogsTableVC = vc
         }

@@ -90,16 +90,11 @@ class AlamofireRequests {
     func addJog(distance: Float, time: Float, date: String, completion: @escaping(Bool) -> ()){
         DispatchQueue.global(qos: .background).async {
             var ok = false
-            let formatter = DateFormatter()
-            formatter.dateFormat = "dd.MM.yyyy"
-            let ff = ISO8601DateFormatter()
-            ff.formatOptions = [.withFullDate]
-            let dateString = ff.string(from: formatter.date(from: date)!)
-            print(dateString)
+            print(date)
             let parameters = [
                 "distance":"\(distance)",
                 "time":"\(time)",
-                "date":"\(dateString)",
+                "date":"\(date)",
             ]
                 
             AF.request("\(self.baseURL)data/jog", method: .post, parameters: parameters).responseJSON {
@@ -139,6 +134,7 @@ class AlamofireRequests {
                 switch response.result {
                 case.success(let value) :
                     let json = JSON(value)
+                    print(json)
                     if let errorMessage = json["error_message"].string {
                         ok = false
                         completion(ok)
@@ -166,12 +162,13 @@ class AlamofireRequests {
                     if let jogs = json["response"]["jogs"].array {
                         for jog in jogs {
                             if jog["user_id"].string! == "3" {
+                                
                                 if let distance = jog["distance"].float,
                                 let id = jog["id"].int,
-                                let date = jog["date"].double,
+                                let date = jog["date"].int,
                                 let time = jog["time"].float,
                                 let user_id = jog["user_id"].string {
-                                RealmOperations().saveJogsToRealm(distance: distance, date: date, time: time, id: String(id), user_id: user_id)
+                                RealmOperations().saveJogsToRealm(distance: distance, date: Double(date), time: time, id: String(id), user_id: user_id)
                                 }
                             } else if let errorMessage = json["error_message"].string {
                                 ok = false

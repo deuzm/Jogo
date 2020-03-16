@@ -48,8 +48,12 @@ class StatsTableViewController: UITableViewController {
         let distanceLabel = cell.viewWithTag(4) as! UILabel
         let timeLabel = cell.viewWithTag(5) as! UILabel
         
+        print(representitiveWeeks[indexPath.row].date)
         let date = representitiveWeeks[indexPath.row].date.toDate()!
         let dateString = "(" + date.startOfWeek!.toString + ") / (" + date.endOfWeek!.toString + ")"
+//        print(date.startOfWeek)
+//        print(date.startOfWeek!.toString)
+//        print(dateString)
         
         dateLabel.text = dateString
             

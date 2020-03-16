@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import RealmSwift
 
 class LogInViewController: UIViewController, UITextFieldDelegate {
     
@@ -20,6 +21,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     var request: AlamofireRequests = AlamofireRequests()
     var ok: Bool = false
+    var jogs: [Jog] = []
     
     //MARK: - main view setup
     override func viewDidLoad() {
@@ -56,7 +58,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 self.activityIndicator.startAnimating()
                 self.activityIndicator.isHidden = false
                 DispatchQueue.global(qos: .background).async {
-                    self.getUser()
                     DispatchQueue.main.async {
                         self.performSegue(withIdentifier: "toHomePageSegue", sender: nil)
                         self.warningLabel.isHidden = true
@@ -101,11 +102,16 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let ok: Bool
         if let destination = segue.destination as? HomePageViewController {
+            getUser()
             AlamofireRequests().getAndSaveJogs() {
                 (ok) in
                 self.ok = ok
                 if(self.ok) {
-                    
+                    let realm = try! Realm()
+                    self.jogs = Array(realm.objects(Jog.self))
+                    print(self.jogs.first)
+                    self.jogs = self.jogs.sorted(by: {$0.date.toDate()! < $1.date.toDate()!})
+                    destination.jogs = self.jogs
                 }
             }
         }
