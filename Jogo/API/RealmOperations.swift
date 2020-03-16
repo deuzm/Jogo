@@ -26,14 +26,20 @@ class RealmOperations {
         }
  
         let formatter = DateFormatter()
-        formatter.timeZone = TimeZone.current
+//        let isoFormatter = ISO8601DateFormatter()
+//        isoFormatter.formatOptions = [.withFullDate]
+//        isoFormatter.timeZone = TimeZone(abbreviation: TimeZone.current.abbreviation() ?? "")
+//        let dd = isoFormatter.string(from: Date(timeIntervalSince1970: date))
+//        print(dd)
+        formatter.timeZone = NSTimeZone(abbreviation: TimeZone.current.abbreviation() ?? "") as! TimeZone
         formatter.dateFormat = "dd.MM.yyyy"
         formatter.locale = Locale(identifier: "en_US")
         formatter.calendar = Calendar(identifier: .gregorian)
-        let dateString = formatter.string(from: Date(timeIntervalSince1970: date))
+        print(TimeZone.current.abbreviation())
+        var dateString = formatter.string(from: Date(timeIntervalSince1970: TimeInterval(date)))
 //        print("\(dateString.toDate()!) ------- todate" )
 //        print("\(dateString) =========== dateString")
-//        print(dateString)
+        print(dateString)
         print(dateString)
         print(date)
         jog.user_id = user_id

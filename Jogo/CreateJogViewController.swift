@@ -96,7 +96,7 @@ class CreateJogViewController: UIViewController {
         ok = false
         activityIndicator.startAnimating()
         activityIndicator.isHidden = false
-            AlamofireRequests().updateJog(distance: Int(distance), time: time, date: date, jog_id: Int(self.jog!.id!) ?? 0, user_id: self.jog!.user_id) {
+        AlamofireRequests().updateJog(distance: Int(distance), time: time, date: date, jog_id: Int(self.jog!.id!) ?? 0, user_id: self.jog!.user_id) {
                 (ok) in
                     
                 self.ok = ok
@@ -137,20 +137,23 @@ class CreateJogViewController: UIViewController {
                     (ok) in
                     self.ok = ok
                     if(self.ok) {
+
                         DispatchQueue.main.async {
                             self.performSegue(withIdentifier: "unwindSegue", sender: self)
                             self.activityIndicator.stopAnimating()
                         }
                     }
+                    
                 }
             }
         }
+        
+        
     }
 //MARK: - segue handling
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? JogsViewController {
             destination.jogsTableVC.jogs = self.jogs
-            print(self.jogs)
             destination.jogsTableVC.tableView.reloadData()
             
         }

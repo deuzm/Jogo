@@ -89,8 +89,9 @@ class AlamofireRequests {
         
     func addJog(distance: Float, time: Float, date: String, completion: @escaping(Bool) -> ()){
         DispatchQueue.global(qos: .background).async {
+
             var ok = false
-            print(date)
+            
             let parameters = [
                 "distance":"\(distance)",
                 "time":"\(time)",
@@ -121,7 +122,11 @@ class AlamofireRequests {
     
     func updateJog(distance: Int, time: Float, date: String, jog_id: Int, user_id: String, completion: @escaping(Bool) -> ()) {
         DispatchQueue.global(qos: .background).async {
+            
             var ok = false
+            
+            
+            
             let parameters = [
                 "jog_id": "\(jog_id)",
                 "user_id": "\(user_id)",
@@ -215,7 +220,5 @@ class AlamofireRequests {
             }
         }
     }
-    
-    
 }
 

@@ -157,6 +157,10 @@ class JogsViewController: UIViewController {
     @IBAction func unwindToViewController(segue: UIStoryboardSegue) {
         if let source = segue.source as? CreateJogViewController {
             
+            let realm = try! Realm()
+            self.jogs = Array(realm.objects(Jog.self))
+            print(self.jogs.first)
+            self.jogs = self.jogs.sorted(by: {$0.date.toDate()! < $1.date.toDate()!})
             self.filtered = self.jogs
             self.jogsTableVC.jogs = self.jogs
             

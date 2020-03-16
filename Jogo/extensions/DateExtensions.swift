@@ -24,9 +24,19 @@ extension Date {
     
     var toString: String {
         let formatter = DateFormatter()
-        formatter.timeZone = TimeZone.current
+        formatter.timeZone = TimeZone(abbreviation: TimeZone.current.abbreviation() ?? "")
         formatter.dateFormat = "dd.MM.yyyy"
         formatter.locale = Locale(identifier: "en_US")
         return formatter.string(from: self)
+    }
+    func convertToLocalTime(fromTimeZone timeZoneAbbreviation: String) -> Date? {
+        if let timeZone = TimeZone(abbreviation: timeZoneAbbreviation) {
+            let targetOffset = TimeInterval(timeZone.secondsFromGMT(for: self))
+            let localOffeset = TimeInterval(TimeZone.autoupdatingCurrent.secondsFromGMT(for: self))
+
+            return self.addingTimeInterval(targetOffset - localOffeset)
+        }
+
+        return nil
     }
 }
