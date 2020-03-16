@@ -703,7 +703,7 @@
                                             <rect key="frame" x="48" y="34" width="89" height="88"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4aQ-fu-vgx">
-                                                    <rect key="frame" x="15" y="17" width="60" height="53"/>
+                                                    <rect key="frame" x="9" y="17" width="73" height="53"/>
                                                     <fontDescription key="fontDescription" name="SFUIText-Bold" family="SF UI Text" pointSize="50"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -711,8 +711,8 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="4aQ-fu-vgx" secondAttribute="trailing" constant="14" id="1ud-KG-cl1"/>
-                                                <constraint firstItem="4aQ-fu-vgx" firstAttribute="leading" secondItem="6Hq-9T-kL5" secondAttribute="leading" constant="15" id="C5T-hW-8F0"/>
+                                                <constraint firstAttribute="trailing" secondItem="4aQ-fu-vgx" secondAttribute="trailing" constant="7" id="1ud-KG-cl1"/>
+                                                <constraint firstItem="4aQ-fu-vgx" firstAttribute="leading" secondItem="6Hq-9T-kL5" secondAttribute="leading" constant="9" id="C5T-hW-8F0"/>
                                                 <constraint firstAttribute="width" constant="89" id="R0U-70-eGr"/>
                                                 <constraint firstItem="4aQ-fu-vgx" firstAttribute="top" secondItem="6Hq-9T-kL5" secondAttribute="top" constant="17" id="YJR-RY-ELy"/>
                                                 <constraint firstAttribute="bottom" secondItem="4aQ-fu-vgx" secondAttribute="bottom" constant="18" id="iaI-U2-kRH"/>
@@ -827,7 +827,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r0w-5S-6ZF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="fci-nF-mqe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1380" y="-633"/>
+            <point key="canvasLocation" x="1380" y="-633.73313343328346"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="SjT-tA-geT">
