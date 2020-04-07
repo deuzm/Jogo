@@ -1,6 +1,6 @@
 # Jogo
 
-This application is a basic jog tracker.
+This application is a basic jog tracker. Write hello to sign in.
 
 # Technologies used: 
   * Swift 
